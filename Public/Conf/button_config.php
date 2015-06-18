@@ -4,7 +4,7 @@ $jiazu_button = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.'g=App&
 $newmenu = '{
 		 "button":[
 			{	
-			  "type":"click",
+			  "type":"view",
 			  "name":"参与招募",
 			  "url":"'.$buy_button.'"
 			},
@@ -21,7 +21,7 @@ $newmenu = '{
 				{
 				   "name":"招商指引",
 				"type":"view",
-			  "url": "http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=207913742&idx=1&sn=6333bdcb136eb339a5ede863b7fbc0e3#rd"
+			  "url": "http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTM	http://fenxiao.stevezheng.com/zNQ==&mid=207913742&idx=1&sn=6333bdcb136eb339a5ede863b7fbc0e3#rd"
 				},
 				{
 				   "name":"个人中心",
