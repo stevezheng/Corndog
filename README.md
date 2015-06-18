@@ -27,3 +27,6 @@ wemall微信商城地址是http://www.inuoer.com
 
 体验请搜索官方微信号:iwemall
 如需更多帮助请加QQ群:115303179（已满）150157872
+
+
+"欢迎加入山姆品牌玉米狗招商团队，品尝健康快餐！</br> 点击可了解详情：</br>   1.<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=207913742&idx=1&sn=6333bdcb136eb339a5ede863b7fbc0e3#rd">山姆品牌&公信资质</a></br> 2.<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=207913742&idx=1&sn=6333bdcb136eb339a5ede863b7fbc0e3#rd">加盟山姆—如何获取代理招商资格</a></br> 3.<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=207913742&idx=1&sn=6333bdcb136eb339a5ede863b7fbc0e3#rd">加盟山姆—如何获取代理商资格</a></br> 4.<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=207913742&idx=1&sn=6333bdcb136eb339a5ede863b7fbc0e3#rd">健康生活平台百问百答</a></br>"

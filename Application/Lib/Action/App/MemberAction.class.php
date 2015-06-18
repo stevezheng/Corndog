@@ -168,7 +168,7 @@ class MemberAction extends Action {
 						$data = array();
 						$data['touser'] = $results['uid'];
 						$data['msgtype'] = 'text';
-						$data['text']['content'] = '【'.$map[login].'】通过分享链接，成为您的'.$message_name.'家族成员！';
+						$data['text']['content'] = '【'.$map[login].'】通过分享链接，成为您的'.$message_name.'团队成员！';
 						$weObj->sendCustomMessage($data);
 					}
 					
@@ -192,7 +192,7 @@ class MemberAction extends Action {
 								$data = array();
 								$data['touser'] = $b_results["uid"];
 								$data['msgtype'] = 'text';
-								$data['text']['content'] = '【'.$map[login].'】通过分享链接，成为您的'.$message_name.'家族成员！';
+								$data['text']['content'] = '【'.$map[login].'】通过分享链接，成为您的'.$message_name.'团队成员！';
 								$weObj->sendCustomMessage($data);
 							}
 							
@@ -216,7 +216,7 @@ class MemberAction extends Action {
 										$data = array();
 										$data['touser'] = $c_results["uid"];
 										$data['msgtype'] = 'text';
-										$data['text']['content'] = '【'.$map[login].'】通过分享链接，成为您的'.$message_name.'家族成员！';
+										$data['text']['content'] = '【'.$map[login].'】通过分享链接，成为您的'.$message_name.'团队成员！';
 										$weObj->sendCustomMessage($data);
 									}
 								}
