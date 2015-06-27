@@ -38,11 +38,11 @@ class ApiAction extends Action {
 			
 			
 			if(!empty($logo)){
-				$img->open('./card.jpg')->water($ticket, THINKIMAGE_WATER_SOUTHEAST)->water($logo, THINKIMAGE_WATER_NORTHWEST)->text($name,'./hei.ttf','16','#FFFF66', THINKIMAGE_WATER_NORTHWEST)->save($user_pic);
+				$img->open('./card.jpg')->water($ticket, THINKIMAGE_WATER_SOUTHEAST)->water($logo, THINKIMAGE_WATER_NORTH, 100)->text('我是'.$name,'./hei.ttf','16','#000000', THINKIMAGE_WATER_NORTH)->text('我为疯狂玉米狗招商','./hei.ttf','16','#000000', THINKIMAGE_WATER_NORTH, 20)->save($user_pic);
 			}
 			else
 			{
-				$img->open('./card.jpg')->water($ticket, THINKIMAGE_WATER_SOUTHEAST)->text($name,'./hei.ttf','16','#FFFF66', THINKIMAGE_WATER_NORTHWEST)->save($user_pic);
+				$img->open('./card.jpg')->water($ticket, THINKIMAGE_WATER_SOUTHEAST)->text('我是'.$name,'./hei.ttf','16','#000000', THINKIMAGE_WATER_NORTH, 100)->text('我为疯狂玉米狗招商','./hei.ttf','16','#000000', THINKIMAGE_WATER_NORTH, 20)->save($user_pic);
 			}
 		
 		}

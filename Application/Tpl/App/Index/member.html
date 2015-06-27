@@ -14,6 +14,18 @@ var appurl = '__APP__';
 var rooturl = '__ROOT__';
 
 $(function () {
+    $("#all_mark").click(function(){
+        $(".mark_cnt").toggle();
+        if($(this).find('img').attr("src")=="../Public/Static/images/arrow_unclick.png")
+        {
+            $(this).find('img').attr("src","../Public/Static/images/arrow_click.png");
+        }
+        else
+        {
+            $(this).find('img').attr("src","../Public/Static/images/arrow_unclick.png");
+        }
+    });
+
 	$("#all_cnt").click(function(){
 		$(".member_cnt").toggle();
 		if($(this).find('img').attr("src")=="../Public/Static/images/arrow_unclick.png")
@@ -25,7 +37,7 @@ $(function () {
 			$(this).find('img').attr("src","../Public/Static/images/arrow_unclick.png");
 		}
 	});
-	
+
 	$("#all_price").click(function(){
 		$(".price_cnt").toggle();
 		if($(this).find('img').attr("src")=="../Public/Static/images/arrow_unclick.png")
@@ -61,7 +73,9 @@ $(function () {
 			$(this).find('img').attr("src","../Public/Static/images/arrow_unclick.png");
 		}
 	});
-	
+
+    $('#all_mark').click();
+
 });
 
 </script>
@@ -89,12 +103,10 @@ $(function () {
 			<span class="header_right">
 				<div class="header_l_di">
 					<span>昵称：<php> echo $wx_info['nickname'];</php></span>&nbsp;&nbsp;
-					<a style='color:red' href="./index.php?g=App&m=Member&a=index&uid={$users.uid}">账号设置</a>
-					&nbsp;&nbsp;
-					<a style='color:red' href="./index.php?g=App&m=Member&a=logout">退出登录</a>
+					<!--<a style='color:red' href="./index.php?g=App&m=Member&a=index&uid={$users.uid}">账号设置</a>-->
 				</div>
 				<div><span>团长：<if condition="$users.member eq 1">是<else/>否(<a style='color:red' href='./index.php?g=App&m=Index&a=index'>点击链接成为团长</a>)</if></span></div>
-				<div><span>关注时间：<php>echo date('Y-m-d',$wx_info['subscribe_time']);</php></span></div>
+				<div><span>关注时间：<php>echo date('Y-m-d',$wx_info['subscribe_time']);</php>&nbsp;&nbsp;<!--<a style='color:red' href="./index.php?g=App&m=Member&a=logout">退出登录</a>--></span></div>
 				<div><span>会员ID：{$users.id}  <if condition="$users.member eq 1"><php>if(isset($dongjia_time) && !empty($dongjia_time)){echo "<span>团长剩余时间:$dongjia_time天</span>";}</php></if></span></div>
 				<!--span>积分：{$users.jifen}</span-->
 			</span>
@@ -102,19 +114,28 @@ $(function () {
 		
 		<div class="div_table">
 		<table  style='height:35px;text-align:center;background-color:#e61945;border:0px' border=0>
-			<tr style="border:0px"  border=0><td style="background-color:#e61945;">营业额：{$all_buy_price}元</td><td style="border-left:1px solid #fff;background-color:#e61945;">可领玉米：{$all_price}元</td></tr>
+			<tr style="border:0px"  border=0><td style="background-color:#e61945;">团队收获：{$all_buy_price}元</td><td style="border-left:1px solid #fff;background-color:#e61945;">我的收获：{$all_price}元</td></tr>
 		</table>
 		
 		</div>
 		
 		<div class="cardexplain" style="TEXT-ALIGN: center;color:#000;font-size:14px;">您是由【{$l_name}】推荐</div>
-		
+
+        <div class="cardexplain">
+            <div class="div_ul" id="all_cnt" ><span><img style='margin-left:5px;' src="../Public/Static/images/arrow_unclick.png">我的团队</span><span class="bg_total">{$all_cnt} 人</span></div>
+            <ul class="round">
+                <li class="member_cnt" style=""><a href="{$type_a_url}"><span><img style="width:20px;height:20px;" src="../Public/Static/images/bullet_blue_expand.png">第一梯队<span style="float:right;color:red;">{$users.a_cnt}</span></span></a></li>
+                <li class="member_cnt"><a href="{$type_b_url}"><span><img style="width:20px;height:20px;"  src="../Public/Static/images/bullet_blue_expand.png">第二梯队<span style="float:right;color:red;">{$users.b_cnt}</span></span></a></li>
+                <li class="member_cnt"><a href="{$type_c_url}"><span><img style="width:20px;height:20px;" src="../Public/Static/images/bullet_blue_expand.png">第三梯队<span style="float:right;color:red;">{$users.c_cnt}</span></span></a></li>
+            </ul>
+        </div>
+
 		<div class="cardexplain">
-			<div class="div_ul" id="all_cnt" ><span><img style='margin-left:5px;' src="../Public/Static/images/arrow_unclick.png">团队成员</span><span class="bg_total">{$all_cnt} 人</span></div>
+			<div class="div_ul" id="all_mark" ><span><img style='margin-left:5px;' src="../Public/Static/images/arrow_click.png">我的市场</span><span class="bg_total">{$all_cnt} 人</span></div>
 			<ul class="round">
-				<li class="member_cnt" style=""><a href="{$type_a_url}"><span><img style="width:20px;height:20px;" src="../Public/Static/images/bullet_blue_expand.png">一级会员<span style="float:right;color:red;">{$users.a_cnt}</span></span></a></li>
-				<li class="member_cnt"><a href="{$type_b_url}"><span><img style="width:20px;height:20px;"  src="../Public/Static/images/bullet_blue_expand.png">二级会员<span style="float:right;color:red;">{$users.b_cnt}</span></span></a></li>
-				<li class="member_cnt"><a href="{$type_c_url}"><span><img style="width:20px;height:20px;" src="../Public/Static/images/bullet_blue_expand.png">三级会员<span style="float:right;color:red;">{$users.c_cnt}</span></span></a></li>
+				<li class="mark_cnt" style=""><a href="{$type_a_url}"><span><img style="width:20px;height:20px;" src="../Public/Static/images/bullet_blue_expand.png">一级市场<span style="float:right;color:red;">{$users.a_cnt}</span></span></a></li>
+				<li class="mark_cnt"><a href="{$type_b_url}"><span><img style="width:20px;height:20px;"  src="../Public/Static/images/bullet_blue_expand.png">二级市场<span style="float:right;color:red;">{$users.b_cnt}</span></span></a></li>
+				<li class="mark_cnt"><a href="{$type_c_url}"><span><img style="width:20px;height:20px;" src="../Public/Static/images/bullet_blue_expand.png">三级市场<span style="float:right;color:red;">{$users.c_cnt}</span></span></a></li>
 			</ul>
 		</div>
 		
@@ -129,7 +150,7 @@ $(function () {
 		
 		
 		<div class="cardexplain">
-			<div class="div_ul" id="all_price"><span><img style='margin-left:5px;'  src="../Public/Static/images/arrow_unclick.png">我的佣金<span class="bg_total">{$all_price} 元</span></span></div>
+			<div class="div_ul" id="all_price"><span><img style='margin-left:5px;'  src="../Public/Static/images/arrow_unclick.png">累计玉米明细<span class="bg_total">{$all_price} 元</span></span></div>
 			<ul class="round">
 				<li class="price_cnt"><span>未付款定单佣金<span style="float:right;color:red;">{$start_price}</span></span></li>
 				<li class="price_cnt"><span>已付款定单佣金<span style="float:right;color:red;">{$over_price}</span></span></li>
@@ -144,12 +165,17 @@ $(function () {
 		<div class="cardexplain">
 			<div class="div_ul" onClick="$('#tx').click();"><span><img style='margin-left:5px;' src="../Public/Static/images/arrow_unclick.png">申请提现</span></div>
 		</div>
-		
+		<!--
 		<div class="cardexplain">
-			<div class="div_ul" id="memeber_url"><span><img style='margin-left:5px;' src="../Public/Static/images/arrow_unclick.png">复制推广链接</span></div>
+			<div class="div_ul" id="memeber_url"><span><img style='margin-left:5px;' src="../Public/Static/images/arrow_unclick.png">分享二维码</span></div>
 		
 			<span class="memeber_url" style='display:none;'>{$member_url}</span>
 		</div>
+		-->
+		<div class="cardexplain">
+			<a href = './index.php?g=App&m=Index&a=member_top&id={$users.id}'><div class="div_ul" id="top_url"><span><img style='margin-left:5px;' src="../Public/Static/images/arrow_unclick.png">销售排行榜</span></div></a>
+		</div>
+		
 	</div>
 	
 	<div id="ticket-container" style="display: none;">
@@ -186,7 +212,7 @@ $(function () {
 			<form name="txinfoForm" id="txinfoForm" method="post" action="">
 				<div class="contact-info">
 					<ul>
-						<li class="title">提现信息</li>
+						<li class="title">领取玉米</li>
 						<li>
 							<table style="padding: 0; margin: 0; width: 100%;">
 								<tbody>
@@ -238,6 +264,12 @@ $(function () {
 											</div>
 										</td>
 									</tr>
+
+                                <tr>
+                                    <td colspan="2">
+                                        <input type="checkbox"><a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208234012&idx=1&sn=5dc4f6f9dc05dc4347742d65601b5582#rd">请先同意本公司提现协议!</a>
+                                    </td>
+                                </tr>
 									
 								</tbody>
 							</table>
@@ -327,13 +359,13 @@ $(function () {
 			<li ><a href="./index.php?g=App&m=Index&a=index_info"> <img src="../Public/Static/images/21.png">
 					<p>立即购买</p>
 			</a></li>
+            <li id="member"><a href="javascript:void(0);" class="active"> <img src="../Public/Static/images/23.png">
+                <p>个人中心</p>
+            </a></li>
 			<li id="user"><a href="javascript:void(0);"> <img src="../Public/Static/images/22.png">
-					<p>我的订单</p>
+					<p>我的预定</p>
 			</a></li>
-			<li id="member"><a href="javascript:void(0);" class="active"> <img src="../Public/Static/images/23.png">
-					<p>团队成就</p>
-			</a></li>
-			<li id="ticket"><a href="javascript:void(0);"> <img src="../Public/Static/images/24.png">
+			<li id="ticket" style="display: none"><a href="javascript:void(0);"> <img src="../Public/Static/images/24.png">
 					<p>我的二维码</p>
 			</a></li>
 			<li style='display:none;' id="tx"><a href="javascript:void(0);"> <img src="../Public/Static/images/24.png">

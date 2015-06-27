@@ -137,6 +137,8 @@ $(document).ready(function () {
                         {
                             html += '<td style="border-bottom:0px">订单状态:<em class="'+order_status+'">'+order+'</em></td></tr>';
                         }
+                        html += '<td style="border-bottom:0px">快递公司:'+value.order_info_name+'</em></td></tr>';
+                        html += '<td style="border-bottom:0px">快递单号:'+value.order_info_num+'</em></td></tr>';
                         html += '</table></li>';
                     });
 
@@ -223,6 +225,8 @@ $(document).ready(function () {
 						{
 							html += '<td style="border-bottom:0px">订单状态:<em class="'+order_status+'">'+order+'</em></td></tr>';
 						}
+						html += '<td style="border-bottom:0px">快递公司:'+value.order_info_name+'</em></td></tr>';
+						html += '<td style="border-bottom:0px">快递单号:'+value.order_info_num+'</em></td></tr>';
 						html += '</table></li>';
 					});
 					
@@ -511,6 +515,8 @@ function submitOrder () {
 								html += '<td style="border-bottom:0px">订单状态:<em class="'+order_status+'">'+order+'</em></td></tr>';
 							}
 						
+							html += '<td style="border-bottom:0px">快递公司:'+value.order_info_name+'</em></td></tr>';
+							html += '<td style="border-bottom:0px">快递单号:'+value.order_info_num+'</em></td></tr>';
 							html += '</table></li>';
 						
 						});

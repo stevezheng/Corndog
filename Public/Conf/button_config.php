@@ -15,11 +15,11 @@ $newmenu = '{
 				
 				{
 				   "type":"click",
-				   "name":"获取山姆推广图片",
+				   "name":"获取推广图片",
 				   "key":"GET_PIC"
 				},
 			    	{
-				   "name":"招商指引",
+				   "name":"招募指引",
 				   "type":"view",
 			  "url": "http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=207913742&idx=1&sn=6333bdcb136eb339a5ede863b7fbc0e3#rd"
 				},

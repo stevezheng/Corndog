@@ -18,11 +18,9 @@ fieldset, img {
 	border: 0;
 }
 
-.jianjie img {
-    width: 100%;
-}
-
 input, textarea, select {
+	-webkit-appearance: none;
+	outline: none;
 }
 
 mark {
@@ -52,7 +50,7 @@ em {
 }
 
 label, input, button, textarea {
-	/*border: none;*/
+	border: none;
 	vertical-align: middle;
 }
 
@@ -83,7 +81,7 @@ a {
 }
 
 a, li, input, button {
-	/*outline: none;*/
+	outline: none;
 }
 
 .left {
@@ -1251,7 +1249,7 @@ del {
 }
 
 .submit:active {
-	background-color: #f3b83a;
+	background-color: #BF0060;
 }
 
 .del {
@@ -1514,9 +1512,9 @@ del {
 
 .menu_topbar {
 	color: #fff;
-	background-color: #f3b83a;
-	background: -webkit-linear-gradient(top, #f3b83a, #f3b83a);
-	border-bottom: 1px solid #f3b83a;
+	background-color: #BF0060;
+	background: -webkit-linear-gradient(top, #BF0060, #BF0060);
+	border-bottom: 1px solid #BF0060;
 	border-top: 0 none;
 	position: fixed;
 	top: 0;
@@ -1628,7 +1626,7 @@ del {
 }
 
 .footermenu ul {
-	border-top: 1px solid #f3b83a;
+	border-top: 1px solid #BF0060;
 	position: fixed;
 	z-index: 900;
 	bottom: -1px;
@@ -1641,8 +1639,8 @@ del {
 	display: -webkit-box;
 	display: box;
 	-webkit-box-orient: horizontal;
-	background-color: #f3b83a;
-	background: -webkit-linear-gradient(top, #f3b83a, #f3b83a);
+	background-color: #BF0060;
+	background: -webkit-linear-gradient(top, #BF0060, #BF0060);
 }
 
 .footermenu ul li {
@@ -1675,7 +1673,7 @@ del {
 }
 
 .footermenu ul li a.active {
-	background: -webkit-linear-gradient(top, #f3b83a, #f3b83a);
+	background: -webkit-linear-gradient(top, #BF0060, #BF0060);
 	box-shadow: 0 -10px 25px 0px rgba(0, 0, 0, 0.3) inset;
 }
 
@@ -2095,7 +2093,7 @@ p.title {
 .div_table table{width:100%;color:#fff;font-size: 14;}
 .div_table td{width:50%;TEXT-ALIGN: center;}
 .bg_total{margin-top:5px;line-height:2em;float:right;background-color:#f17833;padding-left:5px;padding-right:5px;TEXT-ALIGN: center;color:#fff;border-radius:5px; ;font-size:10px;}
-.div_header{background-color:#f3b83a;height:90px;padding:10px;font-size:12px;}
+.div_header{background-color:#f3b83a;height:70px;padding:10px;font-size:12px;}
 .header_right{margin-left:5px;}
 .header_right div{margin-top:4px;}
 
