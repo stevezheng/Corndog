@@ -86,7 +86,7 @@ var rooturl = '__ROOT__';
 						$info = '<span style="font-size:12px;">您还不是团长，请购买成为团长</span>';
 					}
 					$img = !empty($wx_info['headimgurl'])?$wx_info['headimgurl']:'../Public/Static/images/defult.jpg';
-					echo "<li><div><div><img  class='button_img'  src='".$img."'></div><div style='margin-top:5px;margin-left:10px;line-height: 1em;color:#fff;float:left'><span style='color:#B3EE3A;font-size:12px;'>".$wx_info['nickname']."</span><br/>".$info."</div></div><a class='button_buy' href='javascript:go_buy();'><p style='line-height: 3em;'><span style='padding:5px;border:1px solid #B3EE3A;'><strong>立即购买</strong></span></p></a></li>";
+					echo "<li><div><div><img  class='button_img'  src='".$img."'></div><div style='margin-top:5px;margin-left:10px;line-height: 1em;color:#fff;float:left'><span style='color:#B3EE3A;font-size:12px;'>".$wx_info['nickname']."</span><br/>".$info."</div></div><a class='button_buy' href='javascript:go_buy();'><p style='line-height: 3em;'><span style='padding:5px;border:1px solid #B3EE3A;color: #000'><strong>立即预定</strong></span></p></a></li>";
 				}
 				else
 				{

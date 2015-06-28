@@ -9,6 +9,7 @@ $arr1 =  array(
 	'URL_MODEL' => 0,
 	'APP_GROUP_LIST' => 'App,Admin,Api', //项目分组设定
 	'DEFAULT_GROUP'  => 'App', //默认分组
+//    'TMPL_CACHE_ON' => false
 );
 
 include './Public/Conf/config.php';

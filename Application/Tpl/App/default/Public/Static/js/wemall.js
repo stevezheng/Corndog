@@ -121,8 +121,8 @@ $(document).ready(function () {
                         //html += '<tr><td>'+value.orderid+'</td><td class="cc">'+value.totalprice+'元</td><td class="cc"><em class="'+pay_status+'">'+pay+'</em></td><td class="cc"><em class="'+order_status+'">'+order+'</em></td></tr>';
 
                         html += '<li style="border: 1px solid #d0d0d0;border-radius: 10px;margin-bottom:10px;background-color:#FFF;"><table><tr><td style="border-bottom:0px">券号:'+value.orderid+'</td></tr>';
-                        html += '<td style="border-bottom:0px">订单金额:'+value.totalprice+'元</td></tr>';
-                        html += '<td style="border-bottom:0px">订单时间:'+value.time+'</td></tr>';
+                        html += '<td style="border-bottom:0px">定单金额:'+value.totalprice+'元</td></tr>';
+                        html += '<td style="border-bottom:0px">定单时间:'+value.time+'</td></tr>';
                         html += '<td style="border-bottom:0px">支付状态:<em class="'+pay_status+'">'+pay+'</em>';
                         if (value.pay_status == '0')
                         {
@@ -131,11 +131,11 @@ $(document).ready(function () {
                         html += '</td></tr>';
                         if(value.order_status == '1')
                         {
-                            html += '<td style="border-bottom:0px">订单状态:<em class="'+order_status+'" style="background-color:#FFFF00;">'+order+'</em></td></tr>';
+                            html += '<td style="border-bottom:0px">定单状态:<em class="'+order_status+'" style="background-color:#FFFF00;">'+order+'</em></td></tr>';
                         }
                         else
                         {
-                            html += '<td style="border-bottom:0px">订单状态:<em class="'+order_status+'">'+order+'</em></td></tr>';
+                            html += '<td style="border-bottom:0px">定单状态:<em class="'+order_status+'">'+order+'</em></td></tr>';
                         }
                         html += '</table></li>';
                     });
@@ -383,7 +383,7 @@ function submitOrder () {
 	var name = $('#name').val();
 	var phone = $('#phone').val();
 	var weixin = $('#weixin').val();
-	var address = $('#address').val();
+	var address = $('#address').val() || '不需要地址';
 	var s_province = $('#s_province').val();
 	var s_city = $('#s_city').val();
 	var s_county = $('#s_county').val();

@@ -114,7 +114,7 @@ $(function () {
 		
 		<div class="div_table">
 		<table  style='height:35px;text-align:center;background-color:#000;border:0px' border=0>
-			<tr style="border:0px"  border=0><td style="background-color:#000;">团队收获：{$all_buy_price}元</td><td style="border-left:1px solid #fff;background-color:#000;">我的收获：{$all_price}元</td></tr>
+			<tr style="border:0px"  border=0><td style="background-color:#000;">团队收获：{$all_buy_price}</td><td style="border-left:1px solid #fff;background-color:#000;">我的收获：{$all_price}</td></tr>
 		</table>
 		
 		</div>
@@ -150,15 +150,15 @@ $(function () {
 		
 		
 		<div class="cardexplain">
-			<div class="div_ul" id="all_price"><span><img style='margin-left:5px;'  src="../Public/Static/images/arrow_unclick.png">累计玉米明细<span class="bg_total">{$all_price} 元</span></span></div>
+			<div class="div_ul" id="all_price"><span><img style='margin-left:5px;'  src="../Public/Static/images/arrow_unclick.png">收获明细<span class="bg_total">{$all_price} </span></span></div>
 			<ul class="round">
-				<li class="price_cnt"><span>未付款定单佣金<span style="float:right;color:red;">{$start_price}</span></span></li>
-				<li class="price_cnt"><span>已付款定单佣金<span style="float:right;color:red;">{$over_price}</span></span></li>
-				<li class="price_cnt"><span>已收货定单佣金<span style="float:right;color:red;">{$confirm_price}</span></span></li>
-				<li  class="price_cnt"><span>已完成定单佣金<span style="float:right;color:red;">{$add_over_price}</span></span></li>
-				<li  class="price_cnt"><span>待审核提现佣金<span style="float:right;color:red;">{$get_start_price}</span></span></li>
-				<li  class="price_cnt"><span>已提现佣金<span style="float:right;color:red;">{$get_end_price}</span></span></li>
-				<li class="price_cnt"><span>可提现佣金<span style="float:right;color:red;">{$users.price}</span></span></li>
+				<!--<li class="price_cnt"><span>未付款定单佣金<span style="float:right;color:red;">{$start_price}</span></span></li>-->
+				<li class="price_cnt"><span>已预定定单<span style="float:right;color:red;">{$over_price}</span></span></li>
+				<!--<li class="price_cnt"><span>已收货定单佣金<span style="float:right;color:red;">{$confirm_price}</span></span></li>-->
+				<li  class="price_cnt"><span>已确认定单<span style="float:right;color:red;">{$add_over_price}</span></span></li>
+				<li  class="price_cnt"><span>在审核定单<span style="float:right;color:red;">{$get_start_price}</span></span></li>
+				<li  class="price_cnt"><span>已通过定单<span style="float:right;color:red;">{$get_end_price}</span></span></li>
+				<li class="price_cnt"><span>可领取玉米<span style="float:right;color:red;">{$users.price}</span></span></li>
 			</ul>
 		</div>
 
@@ -216,7 +216,6 @@ $(function () {
 			<form name="txinfoForm" id="txinfoForm" method="post" action="">
 				<div class="contact-info">
 					<ul>
-						<li class="title">领取玉米</li>
 						<li>
 							<table style="padding: 0; margin: 0; width: 100%;">
 								<tbody>
@@ -233,7 +232,7 @@ $(function () {
 										<td width="80px"><label for="bank_name" class="ui-input-text">开户行：</label></td>
 										<td>
 											<div class="ui-input-text">
-												<input id="bank_name" name="bank_name" placeholder="" value="" type="text"
+												<input id="bank_name" name="bank_name" placeholder="例如，中国银行北京房山富燕支行" value="" type="text"
 													class="ui-input-text">
 											</div>
 										</td>
@@ -243,17 +242,17 @@ $(function () {
 										<td width="80px"><label for="bank_num" class="ui-input-text">开户账号：</label></td>
 										<td>
 											<div class="ui-input-text">
-												<input id="bank_num" name="bank_num" placeholder="" value="" type="text"
+												<input id="bank_num" name="bank_num" placeholder="请输入卡号" value="" type="text"
 													class="ui-input-text">
 											</div>
 										</td>
 									</tr>
 									
 									<tr>
-										<td width="80px"><label for="name" class="ui-input-text">开户人姓名：</label></td>
+										<td width="80px"><label for="name" class="ui-input-text">开户人：</label></td>
 										<td>
 											<div class="ui-input-text">
-												<input id="name" name="name" placeholder="" value="" type="text"
+												<input id="name" name="name" placeholder="请输入开户人姓名”" value="" type="text"
 													class="ui-input-text">
 											</div>
 										</td>
@@ -263,7 +262,7 @@ $(function () {
 										<td width="80px"><label for="bank_name" class="ui-input-text">电话</label></td>
 										<td>
 											<div class="ui-input-text">
-												<input id="tel" name="tel" placeholder="" value="" type="tel"
+												<input id="tel" name="tel" placeholder="" value="请输入手机号码" type="tel"
 													class="ui-input-text">
 											</div>
 										</td>
@@ -279,7 +278,7 @@ $(function () {
 							</table>
 
 							<div class="footReturn">
-								<a id="txshowcard" class="submit" href="javascript:submitTxOrder();">确定提交</a>
+								<a id="txshowcard" style="background: #32b16c; border: none;" class="submit" href="javascript:submitTxOrder();">确定提交</a>
 							</div>
 
 						</li>
@@ -334,6 +333,7 @@ $(function () {
 
 		<div>
 			<ul class="round" style="margin:0;padding:0;border-radius:0;border:0px;border-bottom:1px solid #C6C6C6">
+                <img src="https://img.alicdn.com/imgextra/i2/2340944591/TB2nRpMcpXXXXXaXpXXXXXXXXXX_!!2340944591.jpg" alt="" width="100%"/>
 				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="cpbiaoge">
 					<tr>
 						<td> <span>订单详情</span> <span style='float:right'><a href='javascript:$("#ticket").click();' style='color:red;'>获取推广二维码>>></a></span> </td>
