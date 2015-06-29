@@ -270,11 +270,13 @@ class WechatAction extends Action {
 								$user_id = $result['id'];
 							}
 							
-							$text = '恭喜您由【'.$user_info['nickname'].'】推荐成为'.$message_name.'的第【'.$user_id.'】位会员.购买马上成为'.$message_name.'的团长，2015年'.$message_name.'引领你开启“赚钱新模式”，带你一起赚钱一起飞！
+//							$text = '恭喜您由【'.$user_info['nickname'].'】推荐成为'.$message_name.'的第【'.$user_id.'】位会员.购买马上成为'.$message_name.'的团长，2015年'.$message_name.'引领你开启“赚钱新模式”，带你一起赚钱一起飞！
+//
+//如果您是新手请<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=207913742&idx=1&sn=6333bdcb136eb339a5ede863b7fbc0e3#rd">点击这里</a>快速学习如何赚钱！
+//
+//如果已经知道怎么玩，请直接<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx44a7467fd96f916c&redirect_uri=http%3A%2F%2Ffenxiao.stevezheng.com%2Findex.php%3Fg%3DApp%26m%3DIndex%26a%3Dindex_info%26refresh%3D1&response_type=code&scope=snsapi_base&state=#wechat_redirect">点击购买</a>成为团长，开启睡觉赚钱新模式哦！';
 
-如果您是新手请<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=207913742&idx=1&sn=6333bdcb136eb339a5ede863b7fbc0e3#rd">点击这里</a>快速学习如何赚钱！
-
-如果已经知道怎么玩，请直接<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx44a7467fd96f916c&redirect_uri=http%3A%2F%2Ffenxiao.stevezheng.com%2Findex.php%3Fg%3DApp%26m%3DIndex%26a%3Dindex_info%26refresh%3D1&response_type=code&scope=snsapi_base&state=#wechat_redirect">点击购买</a>成为团长，开启睡觉赚钱新模式哦！';
+                            $text = '欢迎加入山姆品牌玉米狗招商团队，品尝健康快餐！ 点击可了解详情：   1.<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=207913742&idx=1&sn=6333bdcb136eb339a5ede863b7fbc0e3#rd">山姆品牌&公信资质</a> 2.<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=207913742&idx=1&sn=6333bdcb136eb339a5ede863b7fbc0e3#rd">加盟山姆—如何获取代理招商资格</a> 3.<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=207913742&idx=1&sn=6333bdcb136eb339a5ede863b7fbc0e3#rd">加盟山姆—如何获取代理商资格</a> 4.<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=207913742&idx=1&sn=6333bdcb136eb339a5ede863b7fbc0e3#rd">健康生活平台百问百答</a>';
 						}
 						else
 						{

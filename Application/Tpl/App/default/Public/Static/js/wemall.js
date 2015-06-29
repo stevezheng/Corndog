@@ -380,50 +380,50 @@ function submitOrder () {
 		return false;
 	}
 	
-	var name = $('#name').val();
-	var phone = $('#phone').val();
-	var weixin = $('#weixin').val();
+	var name = $('#name').val() || '不需要';
+	var phone = $('#phone').val() || '不需要';
+	var weixin = $('#weixin').val() || '不需要';
 	var address = $('#address').val() || '不需要地址';
-	var s_province = $('#s_province').val();
-	var s_city = $('#s_city').val();
-	var s_county = $('#s_county').val();
+	var s_province = $('#s_province').val() || '不需要';
+	var s_city = $('#s_city').val() || '不需要';
+	var s_county = $('#s_county').val() || '不需要';
 	
 	//s_province s_city s_county
 	
-	if(name.length<=0)
-	{
-		alert('请输入名称');
-		return false;
-	}
-	
-	if(phone.length<=0)
-	{
-		alert('请输入电话');
-		return false;
-	}
-	
-	if(address.length<=0)
-	{
-		alert('请输入地址');
-		return false;
-	}
-	
-	if(s_province=='省份')
-	{
-		alert('请选择省份');
-		return false;
-	}
-	
-	if(s_city=='城市')
-	{
-		alert('请选择城市');
-		return false;
-	}
-	
-	if(s_county=='区域')
-	{
-		s_county = '';
-	}
+	//if(name.length<=0)
+	//{
+	//	alert('请输入名称');
+	//	return false;
+	//}
+	//
+	//if(phone.length<=0)
+	//{
+	//	alert('请输入电话');
+	//	return false;
+	//}
+	//
+	//if(address.length<=0)
+	//{
+	//	alert('请输入地址');
+	//	return false;
+	//}
+	//
+	//if(s_province=='省份')
+	//{
+	//	alert('请选择省份');
+	//	return false;
+	//}
+	//
+	//if(s_city=='城市')
+	//{
+	//	alert('请选择城市');
+	//	return false;
+	//}
+	//
+	//if(s_county=='区域')
+	//{
+	//	s_county = '';
+	//}
 	
 	$.ajax({
 		type : 'POST',

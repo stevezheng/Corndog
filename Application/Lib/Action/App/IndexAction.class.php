@@ -15,7 +15,13 @@ class IndexAction extends Action {
 		}
 		//$this->init();
 	}
-	
+
+    /**
+     * 初始化
+     * 获取了配置信息后，去获取微信的AccessToken，并在session中保存了openid为uid
+     * 通过uid去查用户的微信关注信息
+     * @param string $type
+     */
 	public function init($type='index')
 	{
 		$agent = $_SERVER['HTTP_USER_AGENT']; 
@@ -63,6 +69,7 @@ class IndexAction extends Action {
 			) );
 			
 			if(strpos($agent,"icroMessenger") && strlen($uid)>10) {
+                //居然要罗列所有可能性
 				if($usersresult['wx_info']==null || $usersresult['wx_info']==false || $usersresult['wx_info']=='false' || $usersresult['wx_info']=='null')
 				{
 					$wx_info = $weObj->getUserInfo($uid);
@@ -880,7 +887,10 @@ class IndexAction extends Action {
 				M ( "Order_level" )->add ( $user_order_level );
 				
 				$l_id_info = M ( "User" )->where(array('id'=>$userdata['l_id']))->find();
-				
+//                $c_a_info = array();
+//                $c_a_info['c_a'] = $l_id_info['c_a'] + 1;
+//                $c_a = M ( "User" )->where(array('id'=>$userdata['l_id']))->save(array('c_a'=>$l_id_info['c_a'] + 1));
+
 				if(strlen($l_id_info['uid'])>10)
 				{
 					$data = array();
@@ -903,7 +913,12 @@ class IndexAction extends Action {
 				M ( "Order_level" )->add ( $user_order_level );
 				
 				$l_b_info = M ( "User" )->where(array('id'=>$userdata['l_b']))->find();
-				
+
+//                $tmp = M("User");
+//                $tmp['c_b'] = $l_b_info['c_b'] + 1;
+//                M ( "User" )->where(array('id'=>$userdata['l_b']))->save($tmp);
+                M ( "User" )->where(array('id'=>$userdata['l_b']))->save(array('c_b'=>$l_b_info['c_b'] + 1));
+
 				if(strlen($l_b_info['uid'])>10)
 				{
 					$data = array();
@@ -925,7 +940,11 @@ class IndexAction extends Action {
 				M ( "Order_level" )->add ( $user_order_level );
 				
 				$l_c_info = M ( "User" )->where(array('id'=>$userdata['l_c']))->find();
-				
+
+//                $tmp = M("User");
+//                $tmp['c_c'] = $l_c_info['c_c'] + 1;
+                M ( "User" )->where(array('id'=>$userdata['l_c']))->save(array('c_c'=>$l_c_info['c_c'] + 1));
+
 				if(strlen($l_c_info['uid'])>10)
 				{
 					$data = array();
@@ -1100,7 +1119,7 @@ class IndexAction extends Action {
 		$userdata = M ( "User" )->where ( array (
 				"uid" => $_SESSION['uid']
 		) )->find ();
-		
+
 		$Order_level_info = M ("Order_level")->where(array('order_id'=>$out_trade_no))->select();
 		if(!empty($Order_level_info))
 		{
@@ -1119,22 +1138,37 @@ class IndexAction extends Action {
 					'paysignkey' => $config ["paysignkey"]  // 商户签名密钥Key
 					);
 			$weObj = new Wechat ( $options );
-			
+
 			foreach($Order_level_info as $info)
 			{
 				if($info['level_type']==1)
 				{
 					$level_text = '一';
+                    if ($userdata['is_c'] != 1) {
+                        $db = new Model();
+                        $db->query("update wemall_user set c_a = c_a + 1 where id=".$userdata['l_id']);
+                        $db->query("update wemall_user set is_c = 1 where id=".$userdata['id']);
+                    }
 				}
 				
 				if($info['level_type']==2)
 				{
 					$level_text = '二';
+                    if ($userdata['is_c'] != 1) {
+                        $db = new Model();
+                        $db->query("update wemall_user set c_b = c_b + 1 where id=" . $userdata['l_b']);
+                        $db->query("update wemall_user set is_c = 1 where id=".$userdata['id']);
+                    }
 				}
 				
 				if($info['level_type']==3)
 				{
 					$level_text = '三';
+                    if ($userdata['is_c'] != 1) {
+                        $db = new Model();
+                        $db->query("update wemall_user set c_c = c_c + 1 where id=" . $userdata['l_c']);
+                        $db->query("update wemall_user set is_c = 1 where id=".$userdata['id']);
+                    }
 				}
 				
 				$level_id = $info['level_id'];
@@ -1146,7 +1180,8 @@ class IndexAction extends Action {
 					$data = array();
 					$data['touser'] = $user_info['uid'];
 					$data['msgtype'] = 'text';
-					$data['text']['content'] = '您的'.$level_text.'级会员【'.$wx_info['nickname'].'】在'.date('Y-m-d H:i:s').'已付款，订单号为：'.$out_trade_no.'；订单金额为：'.$order_info['totalprice'].'元；您已获得的佣金为：'.$info['price'].'元。';
+                    $userdata['wx_info'];
+					$data['text']['content'] = '您的'.$level_text.'级会员【'.$wx_info['nickname'].'】在'.date('Y-m-d H:i:s').'已付款，订单号为：'.$out_trade_no.'；订单金额为：'.$order_info['totalprice'].'元；您已获得的佣金为：'.$info['price'].'元。'.$userdata['is_c'].$userdata['wx_info'];
 					$weObj->sendCustomMessage($data);
 				}
 			}
