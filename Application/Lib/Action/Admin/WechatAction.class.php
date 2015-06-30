@@ -79,7 +79,7 @@ class WechatAction extends Action {
 						}
 						else
 						{
-							$text = '您还不是团长，不能为您生成推广图片，<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx44a7467fd96f916c&redirect_uri=http%3A%2F%2Ffenxiao.stevezheng.com%2Findex.php%3Fg%3DApp%26m%3DIndex%26a%3Dindex_info%26refresh%3D1&response_type=code&scope=snsapi_base&state=#wechat_redirect">立即购买</a>成为团长,开始赚钱！';
+							$text = '您还不是团长，不能为您生成推广图片，<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx44a7467fd96f916c&redirect_uri=http%3A%2F%2Ffenxiao.stevezheng.com%2Findex.php%3Fg%3DApp%26m%3DIndex%26a%3Dindex_info%26refresh%3D1&response_type=code&scope=snsapi_base&state=#wechat_redirect">立即预定</a>成为团长,开始赚钱！';
 							$weObj->text ( $text )->reply ();
 						}
 						exit ();
@@ -97,7 +97,7 @@ class WechatAction extends Action {
 						}
 						else
 						{
-							$text = '您还不是团长，不能为您生成推广链接，<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx44a7467fd96f916c&redirect_uri=http%3A%2F%2Ffenxiao.stevezheng.com%2Findex.php%3Fg%3DApp%26m%3DIndex%26a%3Dindex_info%26refresh%3D1&response_type=code&scope=snsapi_base&state=#wechat_redirect">立即购买</a>成为团长,开始赚钱！';
+							$text = '您还不是团长，不能为您生成推广链接，<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx44a7467fd96f916c&redirect_uri=http%3A%2F%2Ffenxiao.stevezheng.com%2Findex.php%3Fg%3DApp%26m%3DIndex%26a%3Dindex_info%26refresh%3D1&response_type=code&scope=snsapi_base&state=#wechat_redirect">立即预定</a>成为团长,开始赚钱！';
 							$weObj->text ( $text )->reply ();
 						}
 						exit ();
