@@ -98,7 +98,7 @@ $(document).ready(function () {
                         var order = '';
                         if (value.order_status == '0'){
                             order_status = 'no';
-                            order = '未发货';
+                            order = '已预订';
                         }else if ( value.order_status == '1'){
                             order_status = 'no';
                             var confirm_url = appurl+'?g=App&m=Index&a=confirm_order?id='+value.orderid+'&uid='+$_GET['uid'];
@@ -108,7 +108,7 @@ $(document).ready(function () {
                             order = '已退货';
                         }else{
                             order_status = 'ok';
-                            order = '已完成';
+                            order = '已确定';
                         }
 
                         if (value.pay_status == '0'){
@@ -184,7 +184,7 @@ $(document).ready(function () {
 						var order = '';
 						if (value.order_status == '0'){
 							order_status = 'no';
-							order = '未发货';
+							order = '已预订';
 						}else if ( value.order_status == '1'){
 							order_status = 'no';
 							var confirm_url = appurl+'?g=App&m=Index&a=confirm_order?id='+value.orderid+'&uid='+$_GET['uid'];
@@ -194,7 +194,7 @@ $(document).ready(function () {
 							order = '已退货';
 						}else{
 							order_status = 'ok';
-							order = '已完成';
+							order = '已确定';
 						}
 						
 						if (value.pay_status == '0'){
@@ -471,7 +471,7 @@ function submitOrder () {
 							var order = '';
 							if (value.order_status == '0'){
 								order_status = 'no';
-								order = '未发货';
+								order = '已预订';
 							}else if ( value.order_status == '1'){
 								order_status = 'no';
 								var confirm_url = appurl+'?g=App&m=Index&a=confirm_order?id='+value.orderid+'&uid='+$_GET['uid'];
@@ -481,7 +481,7 @@ function submitOrder () {
 								order = '已退货';
 							}else{
 								order_status = 'ok';
-								order = '已完成';
+								order = '已确定';
 							}
 							
 							if (value.pay_status == '0'){
