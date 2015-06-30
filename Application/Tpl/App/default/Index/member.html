@@ -122,11 +122,11 @@ $(function () {
 		<div class="cardexplain" style="TEXT-ALIGN: center;color:#000;font-size:14px;">您是由【{$l_name}】推荐</div>
 
         <div class="cardexplain">
-            <div class="div_ul" id="all_cnt" ><span><img style='margin-left:5px;' src="../Public/Static/images/arrow_unclick.png">我的团队</span><span class="bg_total">{$all_cnt} 人</span></div>
+            <div class="div_ul" id="all_cnt" ><span><img style='margin-left:5px;' src="../Public/Static/images/arrow_unclick.png">我的团队</span><span class="bg_total">{$all_c} 人</span></div>
             <ul class="round">
-                <li class="member_cnt" style=""><a href="{$type_a_url}"><span><img style="width:20px;height:20px;" src="../Public/Static/images/bullet_blue_expand.png">第一梯队<span style="float:right;color:red;">{$users.a_cnt}</span></span></a></li>
-                <li class="member_cnt"><a href="{$type_b_url}"><span><img style="width:20px;height:20px;"  src="../Public/Static/images/bullet_blue_expand.png">第二梯队<span style="float:right;color:red;">{$users.b_cnt}</span></span></a></li>
-                <li class="member_cnt"><a href="{$type_c_url}"><span><img style="width:20px;height:20px;" src="../Public/Static/images/bullet_blue_expand.png">第三梯队<span style="float:right;color:red;">{$users.c_cnt}</span></span></a></li>
+                <li class="member_cnt" style=""><a href="{$type_a_url}"><span><img style="width:20px;height:20px;" src="../Public/Static/images/bullet_blue_expand.png">第一梯队<span style="float:right;color:red;">{$users.c_a}</span></span></a></li>
+                <li class="member_cnt"><a href="{$type_b_url}"><span><img style="width:20px;height:20px;"  src="../Public/Static/images/bullet_blue_expand.png">第二梯队<span style="float:right;color:red;">{$users.c_b}</span></span></a></li>
+                <li class="member_cnt"><a href="{$type_c_url}"><span><img style="width:20px;height:20px;" src="../Public/Static/images/bullet_blue_expand.png">第三梯队<span style="float:right;color:red;">{$users.c_c}</span></span></a></li>
             </ul>
         </div>
 
@@ -220,7 +220,7 @@ $(function () {
 							<table style="padding: 0; margin: 0; width: 100%;">
 								<tbody>
 									<tr>
-										<td width="80px"><label for="price" class="ui-input-text">领取金额：</label></td>
+										<td width="80px"><label for="price" class="ui-input-text">领取玉米：</label></td>
 										<td>
 											<div class="ui-input-text">
 												<input id="price" name="price" placeholder="" value="{$users.price}" type="text"
@@ -262,7 +262,7 @@ $(function () {
 										<td width="80px"><label for="bank_name" class="ui-input-text">电话</label></td>
 										<td>
 											<div class="ui-input-text">
-												<input id="tel" name="tel" placeholder="" value="请输入手机号码" type="tel"
+												<input id="tel" name="tel" placeholder="请输入手机号码" value="" type="tel"
 													class="ui-input-text">
 											</div>
 										</td>
@@ -333,7 +333,7 @@ $(function () {
 
 		<div>
 			<ul class="round" style="margin:0;padding:0;border-radius:0;border:0px;border-bottom:1px solid #C6C6C6">
-                <img src="https://img.alicdn.com/imgextra/i2/2340944591/TB2nRpMcpXXXXXaXpXXXXXXXXXX_!!2340944591.jpg" alt="" width="100%"/>
+                <img src="../Public/Static/images/9.jpg" alt="" width="100%"/>
 				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="cpbiaoge">
 					<tr>
 						<td> <span>订单详情</span> <span style='float:right'><a href='javascript:$("#ticket").click();' style='color:red;'>获取推广二维码>>></a></span> </td>

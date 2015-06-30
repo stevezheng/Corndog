@@ -556,8 +556,10 @@ class IndexAction extends Action {
 			$this->assign ( "type_c_url", $type_c_url );
 			
 			$all_cnt = $usersresult['a_cnt']+$usersresult['b_cnt']+$usersresult['c_cnt'];
+            $all_c = $usersresult['c_a']+$usersresult['c_b']+$usersresult['c_c'];
 			$this->assign ( "all_cnt", $all_cnt );
-			
+            $this->assign ( "all_c", $all_c);
+
 			$where = array();
 			$where ["uid"] = $usersresult['id'];
 			$tx_record = M ( "Tx_record" )->where($where)->select();
@@ -1181,7 +1183,7 @@ class IndexAction extends Action {
 					$data['touser'] = $user_info['uid'];
 					$data['msgtype'] = 'text';
                     $userdata['wx_info'];
-					$data['text']['content'] = '您的'.$level_text.'级会员【'.$wx_info['nickname'].'】在'.date('Y-m-d H:i:s').'已付款，订单号为：'.$out_trade_no.'；订单金额为：'.$order_info['totalprice'].'元；您已获得的佣金为：'.$info['price'].'元。'.$userdata['is_c'].$userdata['wx_info'];
+					$data['text']['content'] = '您的'.$level_text.'级会员【'.$wx_info['nickname'].'】在'.date('Y-m-d H:i:s').'已付款，订单号为：'.$out_trade_no.'；订单金额为：'.$order_info['totalprice'].'元；您已获得的佣金为：'.$info['price'].'元。';
 					$weObj->sendCustomMessage($data);
 				}
 			}
