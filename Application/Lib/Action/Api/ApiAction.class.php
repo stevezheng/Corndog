@@ -35,14 +35,21 @@ class ApiAction extends Action {
 			
 			$img->open($ticket)->thumb(250, 250)->save($ticket);
 			if(!empty($logo)){$img->open($logo)->thumb(70, 70)->save($logo);}
-			
-			
+
+
+//            if(!empty($logo)){
+//                $img->open('./card.jpg')->water($ticket, THINKIMAGE_WATER_SOUTHEAST)->water($logo, THINKIMAGE_WATER_NORTHWEST, 70)->text('我是'.$name,'./hei.ttf','16','#000000', THINKIMAGE_WATER_NORTH, 60)->text('我为疯狂玉米狗招商','./hei.ttf','16','#000000', THINKIMAGE_WATER_NORTH, 80)->save($user_pic);
+//            }
+//            else
+//            {
+//                $img->open('./card.jpg')->water($ticket, THINKIMAGE_WATER_SOUTHEAST)->text('我是'.$name,'./hei.ttf','16','#000000', THINKIMAGE_WATER_NORTH, 100)->text('我为疯狂玉米狗招商','./hei.ttf','16','#000000', THINKIMAGE_WATER_NORTH, 80)->save($user_pic);
+//            }
 			if(!empty($logo)){
-				$img->open('./card.jpg')->water($ticket, THINKIMAGE_WATER_SOUTHEAST)->water($logo, THINKIMAGE_WATER_NORTHWEST, 70)->text('我是'.$name,'./hei.ttf','16','#000000', THINKIMAGE_WATER_NORTH, 60)->text('我为疯狂玉米狗招商','./hei.ttf','16','#000000', THINKIMAGE_WATER_NORTH, 80)->save($user_pic);
+				$img->open('./card.jpg')->water($ticket, THINKIMAGE_WATER_SOUTHEAST)->water($logo, [80, 50])->text('我是'.$name,'./hei.ttf','16','#000000', [160, 80])->text('我为疯狂玉米狗招商','./hei.ttf','16','#000000', [160, 100])->save($user_pic);
 			}
 			else
 			{
-				$img->open('./card.jpg')->water($ticket, THINKIMAGE_WATER_SOUTHEAST)->text('我是'.$name,'./hei.ttf','16','#000000', THINKIMAGE_WATER_NORTH, 100)->text('我为疯狂玉米狗招商','./hei.ttf','16','#000000', THINKIMAGE_WATER_NORTH, 80)->save($user_pic);
+                $img->open('./card.jpg')->water($ticket, THINKIMAGE_WATER_SOUTHEAST)->text('我是'.$name,'./hei.ttf','16','#000000', [160, 80])->text('我为疯狂玉米狗招商','./hei.ttf','16','#000000', [160, 100])->save($user_pic);
 			}
 		
 		}
