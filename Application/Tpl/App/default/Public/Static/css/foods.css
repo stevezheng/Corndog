@@ -2121,3 +2121,7 @@ ul.round_user li {
 {
     margin-bottom: -60px;
 }
+
+#cart-container img {
+    width: 100%;
+}

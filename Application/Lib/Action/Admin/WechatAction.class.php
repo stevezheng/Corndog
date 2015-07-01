@@ -246,15 +246,15 @@ class WechatAction extends Action {
 					
 					if(empty($result["l_id"]) && !empty($result['member']))
 					{
-						$text = '欢迎加入梅森玉米狗招商团队，品尝健康快餐！
+						$text = '欢迎加入山姆玉米狗招商团队，品尝健康快餐！
 
 点击可了解详情：
 
-<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087762&idx=1&sn=be2af861b8635107a9d8813c9a94fca7#rd">梅森品牌</a>&<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087689&idx=1&sn=3057497ebc5140cd471a1737ea56b0e5#rd">公信资质</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087762&idx=1&sn=be2af861b8635107a9d8813c9a94fca7#rd">山姆品牌</a>&<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087689&idx=1&sn=3057497ebc5140cd471a1737ea56b0e5#rd">公信资质</a>
 
-<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087885&idx=1&sn=e4782589ac60b42a789b3f039005fa78#rd">加盟梅森—如何获取招募招商团队资格</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087885&idx=1&sn=e4782589ac60b42a789b3f039005fa78#rd">加盟山姆—如何获取招募招商团队资格</a>
 
-<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087853&idx=1&sn=aeb74f5f58676a23aa2126ad987b6cdc#rd">加盟梅森—如何获取代理商资格</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087853&idx=1&sn=aeb74f5f58676a23aa2126ad987b6cdc#rd">加盟山姆—如何获取代理商资格</a>
 
 <a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087488&idx=1&sn=523e72bd27b29827e2800c1b3385ebd3#rd">健康生活平台百问百答</a>';
 					}
@@ -276,29 +276,29 @@ class WechatAction extends Action {
 //
 //如果已经知道怎么玩，请直接<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx44a7467fd96f916c&redirect_uri=http%3A%2F%2Ffenxiao.stevezheng.com%2Findex.php%3Fg%3DApp%26m%3DIndex%26a%3Dindex_info%26refresh%3D1&response_type=code&scope=snsapi_base&state=#wechat_redirect">点击购买</a>成为团长，开启睡觉赚钱新模式哦！';
 
-                            $text = '欢迎加入梅森玉米狗招商团队，品尝健康快餐！
+                            $text = '欢迎加入山姆玉米狗招商团队，品尝健康快餐！
 
 点击可了解详情：
 
-<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087762&idx=1&sn=be2af861b8635107a9d8813c9a94fca7#rd">梅森品牌</a>&<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087689&idx=1&sn=3057497ebc5140cd471a1737ea56b0e5#rd">公信资质</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087762&idx=1&sn=be2af861b8635107a9d8813c9a94fca7#rd">山姆品牌</a>&<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087689&idx=1&sn=3057497ebc5140cd471a1737ea56b0e5#rd">公信资质</a>
 
-<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087885&idx=1&sn=e4782589ac60b42a789b3f039005fa78#rd">加盟梅森—如何获取招募招商团队资格</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087885&idx=1&sn=e4782589ac60b42a789b3f039005fa78#rd">加盟山姆—如何获取招募招商团队资格</a>
 
-<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087853&idx=1&sn=aeb74f5f58676a23aa2126ad987b6cdc#rd">加盟梅森—如何获取代理商资格</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087853&idx=1&sn=aeb74f5f58676a23aa2126ad987b6cdc#rd">加盟山姆—如何获取代理商资格</a>
 
 <a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087488&idx=1&sn=523e72bd27b29827e2800c1b3385ebd3#rd">健康生活平台百问百答</a>';
 						}
 						else
 						{
-                            $text = '欢迎加入梅森玉米狗招商团队，品尝健康快餐！
+                            $text = '欢迎加入山姆玉米狗招商团队，品尝健康快餐！
 
 点击可了解详情：
 
-<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087762&idx=1&sn=be2af861b8635107a9d8813c9a94fca7#rd">梅森品牌</a>&<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087689&idx=1&sn=3057497ebc5140cd471a1737ea56b0e5#rd">公信资质</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087762&idx=1&sn=be2af861b8635107a9d8813c9a94fca7#rd">山姆品牌</a>&<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087689&idx=1&sn=3057497ebc5140cd471a1737ea56b0e5#rd">公信资质</a>
 
-<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087885&idx=1&sn=e4782589ac60b42a789b3f039005fa78#rd">加盟梅森—如何获取招募招商团队资格</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087885&idx=1&sn=e4782589ac60b42a789b3f039005fa78#rd">加盟山姆—如何获取招募招商团队资格</a>
 
-<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087853&idx=1&sn=aeb74f5f58676a23aa2126ad987b6cdc#rd">加盟梅森—如何获取代理商资格</a>
+<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087853&idx=1&sn=aeb74f5f58676a23aa2126ad987b6cdc#rd">加盟山姆—如何获取代理商资格</a>
 
 <a href="http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087488&idx=1&sn=523e72bd27b29827e2800c1b3385ebd3#rd">健康生活平台百问百答</a>';
 ;
