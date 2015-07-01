@@ -531,12 +531,16 @@ class IndexAction extends Action {
 			$add_over_price = $add_over_price>0 ? $add_over_price : 0;
 			$get_end_price = $get_end_price>0 ? $get_end_price : 0;
 			$get_start_price = $get_start_price>0 ? $get_start_price : 0;
-			
-			$all_price = $start_price+$over_price+confirm_price+add_over_price;
-			
-			$all_price = bcadd($start_price, $over_price, 2);
-			$all_price = bcadd($all_price, $confirm_price, 2);
-			$all_price = bcadd($all_price, $add_over_price, 2);
+
+            $all_price = bcadd(0, $over_price, 2);
+//            $all_price = bcadd($all_price, $confirm_price, 2);
+            $all_price = bcadd($all_price, $add_over_price, 2);
+
+//			$all_price = $start_price+$over_price+confirm_price+add_over_price;
+//
+//			$all_price = bcadd($start_price, $over_price, 2);
+//			$all_price = bcadd($all_price, $confirm_price, 2);
+//			$all_price = bcadd($all_price, $add_over_price, 2);
 
 
 			$this->assign ( "start_price", $start_price );
