@@ -63,7 +63,7 @@ function import_order()
 														type="checkbox" class="ace"> <span class="lbl"></span>
 												</label></th>
 												<th>券号</th>
-												<th>联系人|联系方式|地址</th>
+												<!--<th>联系人|联系方式|地址</th>-->
 												<th>总金额</th>
 												<th>支付方式</th>
 												<th>支付状态</th>
@@ -84,7 +84,7 @@ function import_order()
 												</label></td>
 												
 												<td>{$result.orderid}</td>
-												<td>{$result.user.username}|{$result.user.phone}<br/>{$result.user.address}</td>
+												<!--<td>{$result.user.username}|{$result.user.phone}<br/>{$result.user.address}</td>-->
 												<td>{$result.totalprice}</td>
 												<td>{$result.pay_style}</td>
 												<td><if condition="$result['pay_status'] eq 1">已支付<else/>未支付</if></td>

@@ -387,7 +387,8 @@ function submitOrder () {
 	var s_province = $('#s_province').val() || '不需要';
 	var s_city = $('#s_city').val() || '不需要';
 	var s_county = $('#s_county').val() || '不需要';
-	
+    var s_xieyi = $('#xieyi').val();
+
 	//s_province s_city s_county
 	
 	//if(name.length<=0)
@@ -408,23 +409,29 @@ function submitOrder () {
 	//	return false;
 	//}
 	//
-	//if(s_province=='省份')
-	//{
-	//	alert('请选择省份');
-	//	return false;
-	//}
-	//
-	//if(s_city=='城市')
-	//{
-	//	alert('请选择城市');
-	//	return false;
-	//}
-	//
+	if(s_province=='省份')
+	{
+		alert('请选择省份');
+		return false;
+	}
+
+	if(s_city=='城市')
+	{
+		alert('请选择城市');
+		return false;
+	}
+
 	//if(s_county=='区域')
 	//{
 	//	s_county = '';
 	//}
-	
+
+    if(!$('#xieyi').is(':checked'))
+    {
+        alert('请先同意协议');
+        return false;
+    }
+
 	$.ajax({
 		type : 'POST',
 		url : appurl+'?g=App&m=Index&a=addorder',
