@@ -686,7 +686,7 @@ class IndexAction extends Action {
 			$all_buy_price = $result['price']*$all_buy;
 			$this->assign ( "all_buy_price", $all_buy_price );*/
 			$db = new Model();
-            $ALL_COUNT = $db->query("SELECT sum(`totalprice`) as total FROM `wemall_order_level` inner join `wemall_order` on `wemall_order_level`.`order_id` =  `wemall_order`.`orderid` where `level_id`=$usersresult[id]");
+            $ALL_COUNT = $db->query("SELECT sum(`totalprice`) as total FROM `wemall_order_level` inner join `wemall_order` on `wemall_order_level`.`order_id` =  `wemall_order`.`orderid` where `level_id`=$usersresult[id] and `status`=1");
 			$all_buy_price = empty($ALL_COUNT[0]['total']) ? 0 : $ALL_COUNT[0]['total'];
 			$this->assign ( "all_buy_price", $all_buy_price );
 			
