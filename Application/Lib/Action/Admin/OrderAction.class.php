@@ -243,10 +243,14 @@ class OrderAction extends PublicAction {
 					$result = $result->where(array('order_status'=>(int)$_GET['type']));
 				}
 			}
-			
+
 			$result = $result->select ();
+
+            for ($x=0; $x<=sizeof($result) - 1; $x++) {
+                $result[$x]['wx'] = json_decode($result[$x]['user']['wx_info'],true);
+            }
 		}
-		
+
 		$this->assign ( "result", $result );
 		$this->assign ( "page", $show ); // 赋值分页输出
 		$this->display ();
