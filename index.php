@@ -20,7 +20,7 @@ define( 'APP_SITE', getcwd());
 
 define ( 'APP_PATH', APP_SITE.'/Application/' );
 
-define ( 'APP_DEBUG', true );
+define ( 'APP_DEBUG', true);
 
 require './Core/index.php';
 

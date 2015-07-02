@@ -1,14 +1,14 @@
 <?php
 class IndexAction extends Action {
 	function _initialize() {
-		header("Content-type: text/html; charset=utf-8"); 
+		header("Content-type: text/html; charset=utf-8");
 		if($_GET['debug'])
 		{
-		
+
 		}
 		else
 		{
-			$agent = $_SERVER['HTTP_USER_AGENT']; 
+			$agent = $_SERVER['HTTP_USER_AGENT'];
 			if(!strpos($agent,"icroMessenger")) {
 				//echo '请使用微信访问';exit;
 			}
@@ -24,13 +24,13 @@ class IndexAction extends Action {
      */
 	public function init($type='index')
 	{
-		$agent = $_SERVER['HTTP_USER_AGENT']; 
+		$agent = $_SERVER['HTTP_USER_AGENT'];
 		if(strpos($agent,"icroMessenger") && ((!isset($_GET['uid']) && empty($_SESSION["uid"])) || isset($_GET['refresh']))) {
 			import ( 'Wechat', APP_PATH . 'Common/Wechat', '.class.php' );
 			$config = M ( "Wxconfig" )->where ( array (
-					"id" => "1" 
+					"id" => "1"
 			) )->find ();
-			
+
 			$options = array (
 					'token' => $config ["token"], // 填写你设定的key
 					'encodingaeskey' => $config ["encodingaeskey"], // 填写加密用的EncodingAESKey
@@ -41,7 +41,7 @@ class IndexAction extends Action {
 					'paysignkey' => $config ["paysignkey"]  // 商户签名密钥Key
 					);
 			$weObj = new Wechat ( $options );
-			
+
 			$info = $weObj->getOauthAccessToken();
 			if(!$info)
 			{
@@ -55,19 +55,19 @@ class IndexAction extends Action {
 				$_SESSION['uid'] = $_POST['uid'] = $_GET['uid'] = $info['openid'];
 			}
 		}
-		
+
 		if(!empty($_SESSION["uid"]) && empty($_GET['uid']))
 		{
 			$_GET['uid'] = $_SESSION["uid"];
 		}
-		
+
 		if ($_GET['uid']) {
-		
+
 			$uid = $_SESSION["uid"] = $_GET['uid'];
 			$usersresult = R ( "Api/Api/getuser", array (
-					$uid 
+					$uid
 			) );
-			
+
 			if(strpos($agent,"icroMessenger") && strlen($uid)>10) {
                 //居然要罗列所有可能性
 				if($usersresult['wx_info']==null || $usersresult['wx_info']==false || $usersresult['wx_info']=='false' || $usersresult['wx_info']=='null')
@@ -88,37 +88,37 @@ class IndexAction extends Action {
 							$user ["uid"] = $uid;
 							$usersresult['id'] = M ( "User" )->add ( $user );
 						}
-				
+
 						$user['id'] = $usersresult['id'];
 						$user['wx_info'] = json_encode($wx_info);
 						$user_id = M ( "User" )->save ( $user );
 					}
 				}
 			}
-			
+
 			//更新我的可提现金额
 			$where = array();
 			$where ["level_id"] = $usersresult['id'];
 			$where ["status"] = 2;
 			$where ["active_time"] = array('elt',date('Y-m-d H:i:s'));
 			$result = M ( "Order_level" )->where($where)->select();
-			
+
 			foreach($result as $info)
 			{
 				$level_id = $info['level_id'];
 				$price = $info['price'];
-				
+
 				M ("User")->where(array('id'=>$level_id))->setInc('price',$price);
 				M ( "Order_level" )->where(array('id'=>$info['id']))->save(array('status'=>3));
-				
+
 				M ( "Order" )->where(array('orderid'=>$info['order_id']))->save(array('order_status'=>3));
 			}
-			
+
 			//7天未确认的，自动收获
 			$where = array();
 			$where ["order_status"] = 1;
 			$where ["pay_status"] = 1;
-			
+
 			$tixianinfo = array();
 			$tixianinfo['shouhuo'] = 7;
 			$tixianinfo['tixian'] = 7;
@@ -126,13 +126,13 @@ class IndexAction extends Action {
 			if(file_exists('./Public/Conf/tixianinfo.php'))
 			{
 				require './Public/Conf/tixianinfo.php';
-				$tixianinfo = json_decode($tixianinfo,true); 
+				$tixianinfo = json_decode($tixianinfo,true);
 			}
-		
+
 			$date = strtotime("-$tixianinfo[shouhuo] days");
-			
+
 			$date = date('Y-m-d H:i:s',$date);
-			
+
 			$where ["time"] = array('elt',$date);
 			$result = M ( "Order" )->where($where)->select();
 
@@ -141,7 +141,7 @@ class IndexAction extends Action {
 				$out_trade_no = $info['orderid'];
 				$this->confirm_order_status($out_trade_no);
 			}
-			
+
 			//分销保持资格
 			$this->fenxiao_zige($usersresult);
 		}
@@ -721,7 +721,7 @@ class IndexAction extends Action {
 			$this->ajaxReturn ( $result );
 		}
 	}
-	
+
 	public function confirm_order()
 	{
 		$out_trade_no = $_GET['id'];
@@ -729,7 +729,7 @@ class IndexAction extends Action {
 		{
 			$this->confirm_order_status($out_trade_no);
 		}
-		$this->redirect('App/Index/member', array('page_type'=>'order')); 
+		$this->redirect('App/Index/member', array('page_type'=>'order'));
 	}
 	
 	public function confirm_order_status($out_trade_no)

@@ -324,7 +324,7 @@ class ApiAction extends Action {
 				$data = array();
 				$data['touser'] = $user_info['uid'];
 				$data['msgtype'] = 'text';
-				$data['text']['content'] = '您订单（'.$result['orderid'].'）已经发货，快递单号:'.$order_info['num'].',快递公司：'.$order_info['name'].'，请注意查收';
+				$data['text']['content'] = '您（'.$result['orderid'].'）定单已经进入待确定状态';
 				
 				import ( 'Wechat', APP_PATH . 'Common/Wechat', '.class.php' );
 				$config = M ( "Wxconfig" )->where ( array (

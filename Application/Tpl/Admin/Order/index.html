@@ -60,7 +60,7 @@ function import_order()
 										<thead>
 											<tr>
 												<th class="center"><label> <input
-														type="checkbox" class="ace"> <span class="lbl"></span>
+														type="checkbox" class="ace" id="select-all"> <span class="lbl"></span>
 												</label></th>
 												<th>券号</th>
 												<th>微信名</th>
@@ -80,7 +80,7 @@ function import_order()
 										<volist name="result" id="result">
 											<tr>
 												<td class="center"><label> <input
-														type="checkbox" class="ace"> <span class="lbl"></span>
+														type="checkbox" class="ace select-item" name="is-select"> <span class="lbl"></span>
 												</label></td>
 												
 												<td>{$result.orderid}</td>
@@ -169,6 +169,12 @@ function import_order()
 							}
 						});
 					}
+
+                        $('#select-all').click(function() {
+                            $("input[name='is-select']:checkbox").each(function() { //遍历所有的name为selectFlag的 checkbox
+                                $(this).click();
+                            })
+                        })
 					</script>
 					<div id="home2" class="tab-pane in">
 						<form class="form-horizontal J_ajaxForm" id="myform" action="{:U('Admin/Menu/addmenu')}" method="post">

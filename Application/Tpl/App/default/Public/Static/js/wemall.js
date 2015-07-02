@@ -101,8 +101,8 @@ $(document).ready(function () {
                             order = '已预订';
                         }else if ( value.order_status == '1'){
                             order_status = 'no';
-                            var confirm_url = appurl+'?g=App&m=Index&a=confirm_order?id='+value.orderid+'&uid='+$_GET['uid'];
-                            order = '<a href="'+confirm_url+'" style="color:red">确认收货</a>';
+                            var confirm_url = appurl+'?g=App&m=Index&a=confirm_order&id='+value.orderid+'&uid='+$_GET['uid'];
+                            order = '<a href="'+confirm_url+'" style="color:red">确认定单</a>';
                         }else if ( value.order_status == '4'){
                             order_status = 'no';
                             order = '已退货';
@@ -175,10 +175,10 @@ $(document).ready(function () {
 			},
 			success : function (response , status , xhr){
 				if(response){
-					var json = eval(response); 
+					var json = eval(response);
 					var html = '';
 					var order_status = '';
-					
+
 					$.each(json, function (index, value) {
 						var pay = '';
 						var order = '';
@@ -187,8 +187,8 @@ $(document).ready(function () {
 							order = '已预订';
 						}else if ( value.order_status == '1'){
 							order_status = 'no';
-							var confirm_url = appurl+'?g=App&m=Index&a=confirm_order?id='+value.orderid+'&uid='+$_GET['uid'];
-							order = '<a href="'+confirm_url+'" style="color:red">确认收货</a>';
+							var confirm_url = appurl+'?g=App&m=Index&a=confirm_order&id='+value.orderid+'&uid='+$_GET['uid'];
+							order = '<a href="'+confirm_url+'" style="color:red">确认定单</a>';
 						}else if ( value.order_status == '4'){
 							order_status = 'no';
 							order = '已退货';
@@ -196,7 +196,7 @@ $(document).ready(function () {
 							order_status = 'ok';
 							order = '已确定';
 						}
-						
+
 						if (value.pay_status == '0'){
 							pay_status = 'no';
 							pay = '<a href="'+value.pay_url+'">去支付</a>';
@@ -205,7 +205,7 @@ $(document).ready(function () {
 							pay = '已支付';
 						}
 						//html += '<tr><td>'+value.orderid+'</td><td class="cc">'+value.totalprice+'元</td><td class="cc"><em class="'+pay_status+'">'+pay+'</em></td><td class="cc"><em class="'+order_status+'">'+order+'</em></td></tr>';
-					
+
 						html += '<li style="border: 1px solid #d0d0d0;border-radius: 10px;margin-bottom:10px;background-color:#FFF;"><table><tr><td style="border-bottom:0px">券号:'+value.orderid+'</td></tr>';
 						html += '<td style="border-bottom:0px">订单金额:'+value.totalprice+'元</td></tr>';
 						html += '<td style="border-bottom:0px">订单时间:'+value.time+'</td></tr>';
@@ -225,9 +225,9 @@ $(document).ready(function () {
 						}
 						html += '</table></li>';
 					});
-					
+
 					$('#orderlistinsert').empty();
-					$('#orderlistinsert').append( html );					
+					$('#orderlistinsert').append( html );
 				}
 
 			},
@@ -269,7 +269,7 @@ function addProductN (wemallId){
 	var cartMenuN = parseFloat($('#cartN2').html())+1;
 	$('#totalNum').html( cartMenuN );
 	$('#cartN2').html( cartMenuN );
-	
+
 	var totalPrice = parseFloat($('#totalPrice').html())+ parseFloat(price);
 	$('#totalPrice').html( totalPrice.toFixed(2) );
 }
@@ -280,9 +280,9 @@ function reduceProductN ( wemallId ){
 	if ( reduceProductN == 1) {
 		return false;
 	}
-	
+
 	$('#'+jqueryid).find('.count').html( reduceProductN - 1);
-	
+
 	var cartMenuN = parseFloat($('#cartN2').html())-1;
 	$('#totalNum').html( cartMenuN );
 	$('#cartN2').html( cartMenuN );
@@ -304,7 +304,7 @@ function doProduct (id , name , price) {
 
 		var wemallId = 'wemall_'+id;
 		var html = '<li class="ccbg2" id="'+wemallId+'"><div class="orderdish"><span name="title">'+name+'</span><span class="price" id="v_0" style="display:none;">'+price+'</span><span style="display:none; class="price">元</span></div><div class="orderchange"><a href=javascript:addProductN("'+wemallId+'_'+price+'") class="increase"><b class="ico_increase">加一份</b></a><span class="count" id="num_1_499">1</span><a href=javascript:reduceProductN("'+wemallId+'_'+price+'") class="reduce"><b class="ico_reduce">减一份</b></a></div></li>';
-	
+
 		$('#ullist').append(html);
 	}else{
 		$('#'+id).children().css('background-color','');
@@ -369,17 +369,17 @@ function submitOrder () {
 		var num = $(this).find('span[class=count]').html();
 		var price = $(this).find('span[class=price]').html();
 		json += '{"name":"'+name+'","num":"'+num+'","price":"'+price+'"},';
-	
+
 	});
 	json = json.substring(0 , json.length-1);
 	json = '['+json+']';
-	
+
 	if($('#totalPrice').html()<=0)
 	{
 		alert('请选择商品');
 		return false;
 	}
-	
+
 	var name = $('#name').val() || '不需要';
 	var phone = $('#phone').val() || '不需要';
 	var weixin = $('#weixin').val() || '不需要';
@@ -390,7 +390,7 @@ function submitOrder () {
     var s_xieyi = $('#xieyi').val();
 
 	//s_province s_city s_county
-	
+
 	//if(name.length<=0)
 	//{
 	//	alert('请输入名称');
@@ -443,11 +443,11 @@ function submitOrder () {
 			user_address:s_province+','+s_city+','+s_county+','+address
 		},
 		success : function (response , status , xhr) {
-			
+
 			if (response.msg) {
 				alert(response.msg);return false;
 			}
-			
+
 			$('#user').click();
 			$('#ullist').find('li').remove();
 			$('.reduce').each(function () {
@@ -456,11 +456,11 @@ function submitOrder () {
 			$('#totalNum').html(0);
 			$('#cartN2').html( 0 );
 			$('#totalPrice').html(0);
-			
+
 			if (response) {
 				window.location.href=response;return false;
 			}
-			
+
 			$.ajax({
 				type : 'POST',
 				url : appurl+'?g=App&m=Index&a=getorders',
@@ -469,10 +469,10 @@ function submitOrder () {
 				},
 				success : function (response , status , xhr){
 					if(response){
-						var json = eval(response); 
+						var json = eval(response);
 						var html = '';
 						var order_status = '';
-						
+
 						$.each(json, function (index, value) {
 							var pay = '';
 							var order = '';
@@ -481,8 +481,8 @@ function submitOrder () {
 								order = '已预订';
 							}else if ( value.order_status == '1'){
 								order_status = 'no';
-								var confirm_url = appurl+'?g=App&m=Index&a=confirm_order?id='+value.orderid+'&uid='+$_GET['uid'];
-								order = '<a href="'+confirm_url+'" style="color:red">确认收货</a>';
+								var confirm_url = appurl+'?g=App&m=Index&a=confirm_order&id='+value.orderid+'&uid='+$_GET['uid'];
+								order = '<a href="'+confirm_url+'" style="color:red">确认定单</a>';
 							}else if ( value.order_status == '4'){
 								order_status = 'no';
 								order = '已退货';
