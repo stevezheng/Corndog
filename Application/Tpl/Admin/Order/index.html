@@ -69,9 +69,9 @@ function import_order()
 												<th>支付状态</th>
 												<th>订单状态</th>
 												<th>创建时间</th>
-												<th>备注</th>
+												<!--<th>备注</th>-->
 												<th>详情</th>
-												<th>快递信息</th>
+												<!--<th>快递信息</th>-->
 												<th>操作</th>
 											</tr>
 										</thead>
@@ -96,7 +96,7 @@ function import_order()
 													<if condition="$result['order_status'] eq 4">已退货</if>
 												</td>
 												<td>{$result.time}</td>
-												<td>{$result.note}</td>
+												<!--<td>{$result.note}</td>-->
 												<td style="width:65px;">
 													<div class="btn-group" style="position: absolute;">
 														<a class="btn btn-white btn-sm"
@@ -125,10 +125,10 @@ function import_order()
 													</div>
 												</td>
 
-												<td>
-													订单号：<input type='text' name='num' id='num_{$result.id}' value='<php>$json = $result[order_info];$data = json_decode($json,true);echo $data[num]</php>'><br/>
-													快递公司：<input type='text' name='name' id='name_{$result.id}' value='<php>$json = $result[order_info];$data = json_decode($json,true);echo $data[name]</php>'><input type='button' value='修改' onclick="submit_order_info({$result.id})">
-												</td>
+												<!--<td>-->
+													<!--订单号：<input type='text' name='num' id='num_{$result.id}' value='<php>$json = $result[order_info];$data = json_decode($json,true);echo $data[num]</php>'><br/>-->
+													<!--快递公司：<input type='text' name='name' id='name_{$result.id}' value='<php>$json = $result[order_info];$data = json_decode($json,true);echo $data[name]</php>'><input type='button' value='修改' onclick="submit_order_info({$result.id})">-->
+												<!--</td>-->
 												
 												<td>
 													<if condition="$result['order_status'] eq 0"><a href="{:U('Admin/Order/publish',array('id'=>$result['id']))}" class="btn btn-white btn-sm">现在发货</a></if>
