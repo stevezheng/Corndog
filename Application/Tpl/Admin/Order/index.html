@@ -4,7 +4,7 @@
 	<option >全部</option>
 	<option value="{:U('Admin/Order/index',array('type'=>0))}">未发货</option>
 	<option value="{:U('Admin/Order/index',array('type'=>1))}">已发货</option>
-	<option value="{:U('Admin/Order/index',array('type'=>2))}">已收货</option>
+	<option value="{:U('Admin/Order/index',array('type'=>2))}">已确认</option>
 	<option value="{:U('Admin/Order/index',array('type'=>3))}">已完成</option>
 	<option value="{:U('Admin/Order/index',array('type'=>4))}">已退货</option>
 	<option value="{:U('Admin/Order/index',array('type'=>5))}">已支付</option>
@@ -91,7 +91,7 @@ function import_order()
 												<td>
 													<if condition="$result['order_status'] eq 0">未发货</if>
 													<if condition="$result['order_status'] eq 1">已发货</if>
-													<if condition="$result['order_status'] eq 2">已收货</if>
+													<if condition="$result['order_status'] eq 2">已确认</if>
 													<if condition="$result['order_status'] eq 3">已完成</if>
 													<if condition="$result['order_status'] eq 4">已退货</if>
 												</td>

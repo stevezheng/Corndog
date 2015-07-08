@@ -116,7 +116,7 @@ class IndexAction extends Action {
 
 			//7天未确认的，自动收获
 			$where = array();
-			$where ["order_status"] = 1;
+			$where ["order_status"] = 0;
 			$where ["pay_status"] = 1;
 
 			$tixianinfo = array();
@@ -622,9 +622,9 @@ class IndexAction extends Action {
 
 //			$all_price = $start_price+$over_price+confirm_price+add_over_price;
 //
-//			$all_price = bcadd($start_price, $over_price, 2);
-//			$all_price = bcadd($all_price, $confirm_price, 2);
-//			$all_price = bcadd($all_price, $add_over_price, 2);
+//			$all_price = bcadd($all_price, $over_price, 2);
+			$all_price = bcadd($all_price, $confirm_price, 2);
+			$all_price = bcadd($all_price, $add_over_price, 2);
 
 
 			$this->assign ( "start_price", $start_price );
@@ -686,7 +686,7 @@ class IndexAction extends Action {
 			$all_buy_price = $result['price']*$all_buy;
 			$this->assign ( "all_buy_price", $all_buy_price );*/
 			$db = new Model();
-            $ALL_COUNT = $db->query("SELECT sum(`totalprice`) as total FROM `wemall_order_level` inner join `wemall_order` on `wemall_order_level`.`order_id` =  `wemall_order`.`orderid` where `level_id`=$usersresult[id] and `status`=1");
+            $ALL_COUNT = $db->query("SELECT sum(`totalprice`) as total FROM `wemall_order_level` inner join `wemall_order` on `wemall_order_level`.`order_id` =  `wemall_order`.`orderid` where `level_id`=$usersresult[id] and `status`>=1");
 			$all_buy_price = empty($ALL_COUNT[0]['total']) ? 0 : $ALL_COUNT[0]['total'];
 			$this->assign ( "all_buy_price", $all_buy_price );
 			
