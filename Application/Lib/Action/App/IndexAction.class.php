@@ -296,8 +296,8 @@ class IndexAction extends Action {
 			$this->assign ( "users", $usersresult );
 		
 			
-			$count_desc="我的分销：";
-			
+			$count_desc="我的梯队：";
+
 			if($type==1)
 			{
 				$where = array('l_id'=>$id);
