@@ -345,25 +345,25 @@ class ApiAction extends Action {
 				$weObj->sendCustomMessage($data);
 			}
 		}
-							
-		if ($reuslt) {
-			return $reuslt;
-		}
+
+        if ($result) {
+            return $result;
+        }
 	}
 	public function payComplete($id) {
 		$data ["id"] = $id;
 		$data ["pay_status"] = 1;
 		$result = M ( "Order" )->save ( $data );
-		if ($reuslt) {
-			return $reuslt;
+		if ($result) {
+			return $result;
 		}
 	}
 	public function txpayComplete($id) {
 		$data ["id"] = $id;
 		$data ["status"] = 1;
 		$result = M ( "Tx_record" )->save ( $data );
-		if ($reuslt) {
-			return $reuslt;
+		if ($result) {
+			return $result;
 		}
 	}
 	public function getuser($uid) {

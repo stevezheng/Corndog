@@ -287,8 +287,8 @@ class OrderAction extends PublicAction {
 	}
 	public function payComplete(){
 		$result = R ( "Api/Api/payComplete", array (
-				$_GET ['id'],
+				$_POST['id'],
 		) );
-		$this->success ( "操作成功" );
+		$this->success ($result);
 	}
 }

@@ -133,7 +133,8 @@ function import_order()
 												<td>
 													<if condition="$result['order_status'] eq 0"><a href="{:U('Admin/Order/publish',array('id'=>$result['id']))}" class="btn btn-white btn-sm">现在发货</a></if>
 													<if condition="$result['order_status'] neq 4"><a href="{:U('Admin/Order/txpublish',array('id'=>$result['id']))}" class="btn btn-white btn-sm">退货</a></if>
-													<!--a href="{:U('Admin/Order/payComplete',array('id'=>$result['id']))}" class="btn btn-white btn-sm">已支付</a-->
+													<!--<a href="{:U('Admin/Order/payComplete',array('id'=>$result['id']))}" class="btn btn-white btn-sm">已支付</a>-->
+                                                    <button onclick="payComplete({$result['id']})" class="btn btn-white btn-sm">确定支付</button>
 													<a class="btn btn-white btn-sm" href="{:U('Admin/Order/del',array('id'=>$result['id']))}">删除</a>
 												</td>
 											</tr>
@@ -148,6 +149,25 @@ function import_order()
 						</div>
 					</div>
 					<script>
+                        function payComplete(id) {
+                            var r = confirm('是否已确认该订单已支付?');
+                            if (r) {
+                                $.ajax({
+                                    type : 'POST',
+                                    url : '{:U("Admin/Order/payComplete")}',
+                                    data : {
+                                        id : id
+                                    },
+                                    success : function (response , status , xhr) {
+                                        alert('操作成功');
+                                    },
+                                    beforeSend : function(){
+                                    },
+                                    complete : function(){
+                                    }
+                                });
+                            }
+                        }
 					function submit_order_info(id)
 					{
 						var num = $('#num_'+id).val();
