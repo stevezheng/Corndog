@@ -108,6 +108,7 @@ $(function () {
 				<div><span>团长：<if condition="$users.member eq 1">是<else/>否(<a style='color:red' href='./index.php?g=App&m=Index&a=index'>点击链接成为团长</a>)</if></span></div>
 				<div><span>关注时间：<php>echo date('Y-m-d',$wx_info['subscribe_time']);</php>&nbsp;&nbsp;<!--<a style='color:red' href="./index.php?g=App&m=Member&a=logout">退出登录</a>--></span></div>
 				<!--<div><span>会员ID：{$users.id}  <if condition="$users.member eq 1"><php>if(isset($dongjia_time) && !empty($dongjia_time)){echo "<span>团长剩余时间:$dongjia_time天</span>";}</php></if></span></div>-->
+				<div><span>会员ID：{$users.id} </span> </div>
 				<!--span>积分：{$users.jifen}</span-->
 			</span>
 		</div>

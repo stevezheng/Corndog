@@ -184,7 +184,7 @@ class IndexAction extends Action {
 					}
 				}
 			}
-		}
+        }
 	}
 
     public function member_cost_info()
@@ -663,7 +663,7 @@ class IndexAction extends Action {
 			
 			if($usersresult['member']==1 && (empty($usersresult['ticket']) || empty($usersresult['url'])))
 			{
-				$this->add_member($usersresult['id'],$usersresult['uid']);
+//				$this->add_member($usersresult['id'],$usersresult['uid']);
 			}
 			
 			$where = array();

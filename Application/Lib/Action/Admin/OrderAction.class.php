@@ -289,6 +289,9 @@ class OrderAction extends PublicAction {
 		$result = R ( "Api/Api/payComplete", array (
 				$_POST['id'],
 		) );
-		$this->success ($result);
+        $order = M('Order')->where(array('id'=>$_POST['id']))->find();
+        $user_id = $order['user_id'];
+        $r = M('User')->where(array('id'=>$user_id))->save(array('member'=>1));
+		$this->success ($r.$user_id);
 	}
 }
