@@ -1,4 +1,14 @@
 <include file="Public:header"/>
+<script>
+    function import_order()
+    {
+        var docurl = "{:U('Admin/Tx/import')}";
+        open(docurl,'_self');
+    }
+</script>
+<div>
+    <button onclick='import_order();' class="btn btn-white btn-sm">导出待提现申请</button>
+</div>
 <div class="col-sm-12 widget-container-span">
 	<div class="widget-box transparent">
 		<div class="widget-body">
