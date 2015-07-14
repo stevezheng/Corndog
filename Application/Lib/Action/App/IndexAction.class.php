@@ -624,7 +624,7 @@ class IndexAction extends Action {
 //
 //			$all_price = bcadd($all_price, $over_price, 2);
 			$all_price = bcadd($all_price, $confirm_price, 2);
-			$all_price = bcadd($all_price, $add_over_price, 2);
+//			$all_price = bcadd($all_price, $add_over_price, 2);
 
 
 			$this->assign ( "start_price", $start_price );
