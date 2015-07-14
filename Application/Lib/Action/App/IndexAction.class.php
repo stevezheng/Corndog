@@ -618,12 +618,13 @@ class IndexAction extends Action {
 
             $all_price = bcadd(0, $over_price, 2);
 //            $all_price = bcadd($all_price, $confirm_price, 2);
-            $all_price = bcadd($all_price, $add_over_price, 2);
+//            $all_price = bcadd($all_price, $add_over_price, 2);
 
 //			$all_price = $start_price+$over_price+confirm_price+add_over_price;
 //
 //			$all_price = bcadd($all_price, $over_price, 2);
 			$all_price = bcadd($all_price, $confirm_price, 2);
+            $all_price = bcadd($all_price, $usersresult['price'], 2);
 //			$all_price = bcadd($all_price, $add_over_price, 2);
 
 
