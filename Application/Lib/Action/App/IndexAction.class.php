@@ -647,6 +647,7 @@ class IndexAction extends Action {
             $type_c_a_url = 'http://' . $_SERVER ['SERVER_NAME']. U('App/Index/member_cost_info',array('type'=>1,'id'=>$usersresult['id']));
             $type_c_b_url = 'http://' . $_SERVER ['SERVER_NAME']. U('App/Index/member_cost_info',array('type'=>2,'id'=>$usersresult['id']));
             $type_c_c_url = 'http://' . $_SERVER ['SERVER_NAME']. U('App/Index/member_cost_info',array('type'=>3,'id'=>$usersresult['id']));
+
             $this->assign ( "type_c_a_url", $type_c_a_url );
             $this->assign ( "type_c_b_url", $type_c_b_url );
             $this->assign ( "type_c_c_url", $type_c_c_url );

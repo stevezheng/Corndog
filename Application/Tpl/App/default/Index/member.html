@@ -132,11 +132,15 @@ $(function () {
         </div>
 
 		<div class="cardexplain">
-			<div class="div_ul" id="all_mark" ><span><img style='margin-left:5px;' src="../Public/Static/images/arrow_click.png">我的市场</span><span class="bg_total">{$all_cnt} 人</span></div>
+			<!--<div class="div_ul" id="all_mark" ><span><img style='margin-left:5px;' src="../Public/Static/images/arrow_click.png">我的市场</span><span class="bg_total">{$all_cnt} 人</span></div>-->
+            <div class="div_ul" id="all_mark" ><span><img style='margin-left:5px;' src="../Public/Static/images/arrow_click.png">我的市场</span><span class="bg_total">{:template_substract($all_cnt,$all_c)} 人</span></div>
 			<ul class="round">
-				<li class="mark_cnt" style=""><a href="{$type_a_url}"><span><img style="width:20px;height:20px;" src="../Public/Static/images/bullet_blue_expand.png">一级市场<span style="float:right;color:red;">{$users.a_cnt}</span></span></a></li>
-				<li class="mark_cnt"><a href="{$type_b_url}"><span><img style="width:20px;height:20px;"  src="../Public/Static/images/bullet_blue_expand.png">二级市场<span style="float:right;color:red;">{$users.b_cnt}</span></span></a></li>
-				<li class="mark_cnt"><a href="{$type_c_url}"><span><img style="width:20px;height:20px;" src="../Public/Static/images/bullet_blue_expand.png">三级市场<span style="float:right;color:red;">{$users.c_cnt}</span></span></a></li>
+				<!--<li class="mark_cnt" style=""><a href="{$type_a_url}"><span><img style="width:20px;height:20px;" src="../Public/Static/images/bullet_blue_expand.png">一级市场<span style="float:right;color:red;">{$users.a_cnt}</span></span></a></li>-->
+                <!--<li class="mark_cnt"><a href="{$type_b_url}"><span><img style="width:20px;height:20px;"  src="../Public/Static/images/bullet_blue_expand.png">二级市场<span style="float:right;color:red;">{$users.b_cnt}</span></span></a></li>-->
+                <!--<li class="mark_cnt"><a href="{$type_c_url}"><span><img style="width:20px;height:20px;" src="../Public/Static/images/bullet_blue_expand.png">三级市场<span style="float:right;color:red;">{$users.c_cnt}</span></span></a></li>-->
+                <li class="mark_cnt" style=""><a href="{$type_a_url}"><span><img style="width:20px;height:20px;" src="../Public/Static/images/bullet_blue_expand.png">一级市场<span style="float:right;color:red;">{:template_substract($users['a_cnt'],$users['c_a'])}</span></span></a></li>
+                <li class="mark_cnt"><a href="{$type_b_url}"><span><img style="width:20px;height:20px;"  src="../Public/Static/images/bullet_blue_expand.png">二级市场<span style="float:right;color:red;">{:template_substract($users['b_cnt'],$users['c_b'])}</span></span></a></li>
+                <li class="mark_cnt"><a href="{$type_c_url}"><span><img style="width:20px;height:20px;" src="../Public/Static/images/bullet_blue_expand.png">三级市场<span style="float:right;color:red;">{:template_substract($users['c_cnt'],$users['c_c'])}</span></span></a></li>
 			</ul>
 		</div>
 		
