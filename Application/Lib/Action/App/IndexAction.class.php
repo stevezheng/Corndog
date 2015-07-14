@@ -271,84 +271,168 @@ class IndexAction extends Action {
         }
     }
 
-	public function member_info()
-	{
-		if ($_GET ['id'] && $_GET ['type']) {
-			
-			$type = $_GET ['type'];
-			import ( 'ORG.Util.Page' );
-			
-			$id = $_GET ["id"];
-			
-			$user = htmlspecialchars($_GET ["user"]);
-			
-			$where = array('id'=>$id);
-			$usersresult = M ("User")->where($where)->find();
-			
-			if(empty($usersresult))
-			{
-				exit('未查到该用户信息');
-			}
-			
-			//分销保持资格
-			$this->fenxiao_zige($usersresult);
-			
-			$this->assign ( "users", $usersresult );
-		
-			
-			$count_desc="我的梯队：";
+    public function member_info()
+    {
+        if ($_GET ['id'] && $_GET ['type']) {
 
-			if($type==1)
-			{
-				$where = array('l_id'=>$id);
-			}
-			else if ($type==2)
-			{
-				$where = array('l_b'=>$id);
-			}
-			else if($type==3)
-			{
-				$where = array('l_c'=>$id);
-			}
-			if(!empty($user)){$where['id'] = $user;}
-			
-			$count = M ("User")->where($where)->count();
-			
-			if($type==1)
-			{
-				$count_desc .= "部分会员($count)人";
-			}
-			else if ($type==2)
-			{
-				$count_desc .= "二级会员($count)人";
-			}
-			else if($type==3)
-			{
-				$count_desc .= "三级会员($count)人";
-			}
-			
-			$Page = new Page ( $count, 10 ); 
-			
-			$Page -> setConfig('header', '人');
-			$Page -> setConfig('theme', '<li><a>%totalRow% %header%</a></li> <li>%upPage%</li> <li>%downPage%</li> <li>%first%</li>  <li>%prePage%</li> <li>%end%</li> ');//(对thinkphp自带分页的格式进行自定义)
-		
-			$show = $Page->show (); // 分页显示输出
-			
-			$result = M ("User")->where($where)->limit ( $Page->firstRow . ',' . $Page->listRows )->select();
-			$this->assign ( "result", $result );
-			$this->assign ( "page", $show ); 
-			$this->assign ( "count_desc", $count_desc ); 
-			
-			$info = R ( "Api/Api/gettheme" );
-			C ( "DEFAULT_THEME", $info ["theme"] );
-			$this->assign ( "info", $info );
-			
-			$this->assign ( "dongjia_time", $this->dongjia_time );
-			
-			$this->display ();
-		}
-	}
-	
+            $type = $_GET ['type'];
+            import ( 'ORG.Util.Page' );
+
+            $id = $_GET ["id"];
+
+            $user = htmlspecialchars($_GET ["user"]);
+
+            $where = array('id'=>$id);
+            $usersresult = M ("User")->where($where)->find();
+
+            if(empty($usersresult))
+            {
+                exit('未查到该用户信息');
+            }
+
+            //分销保持资格
+            $this->fenxiao_zige($usersresult);
+
+            $this->assign ( "users", $usersresult );
+
+
+            $count_desc="我的梯队：";
+
+            $q = '';
+            if($type==1)
+            {
+                $where = array('l_id'=>$id, 'is_c'=>1);
+                $q = 'l_id='.$id.' AND is_c is NULL';
+            }
+            else if ($type==2)
+            {
+                $where = array('l_b'=>$id, 'is_c'=>1);
+                $q = 'l_b='.$id.' AND is_c is NULL';
+            }
+            else if($type==3)
+            {
+                $where = array('l_c'=>$id, 'is_c'=>1);
+                $q = 'l_c='.$id.' AND is_c is NULL';
+            }
+
+            if(!empty($user)){$where['id'] = $user;}
+
+//            $count = M ("User")->where('l_id='.$id.' AND is_c=1')->count();
+            $count = M ("User")->where($q)->count();
+
+            if($type==1)
+            {
+                $count_desc .= "部分会员($count)人";
+            }
+            else if ($type==2)
+            {
+                $count_desc .= "二级会员($count)人";
+            }
+            else if($type==3)
+            {
+                $count_desc .= "三级会员($count)人";
+            }
+
+            $Page = new Page ( $count, 10 );
+
+            $Page -> setConfig('header', '人');
+            $Page -> setConfig('theme', '<li><a>%totalRow% %header%</a></li> <li>%upPage%</li> <li>%downPage%</li> <li>%first%</li>  <li>%prePage%</li> <li>%end%</li> ');//(对thinkphp自带分页的格式进行自定义)
+
+            $show = $Page->show (); // 分页显示输出
+
+            $result = M ("User")->where($q)->limit ( $Page->firstRow . ',' . $Page->listRows )->select();
+            $this->assign ( "result", $result );
+            $this->assign ( "page", $show );
+            $this->assign ( "count_desc", $count_desc );
+
+            $info = R ( "Api/Api/gettheme" );
+            C ( "DEFAULT_THEME", $info ["theme"] );
+            $this->assign ( "info", $info );
+
+            $this->assign ( "dongjia_time", $this->dongjia_time );
+
+            $this->display ();
+        }
+    }
+
+//	public function member_info()
+//	{
+//		if ($_GET ['id'] && $_GET ['type']) {
+//
+//			$type = $_GET ['type'];
+//			import ( 'ORG.Util.Page' );
+//
+//			$id = $_GET ["id"];
+//
+//			$user = htmlspecialchars($_GET ["user"]);
+//
+//			$where = array('id'=>$id);
+//			$usersresult = M ("User")->where($where)->find();
+//
+//			if(empty($usersresult))
+//			{
+//				exit('未查到该用户信息');
+//			}
+//
+//			//分销保持资格
+//			$this->fenxiao_zige($usersresult);
+//
+//			$this->assign ( "users", $usersresult );
+//
+//
+//			$count_desc="我的梯队：";
+//
+//			if($type==1)
+//			{
+//				$where = array('l_id'=>$id);
+//			}
+//			else if ($type==2)
+//			{
+//				$where = array('l_b'=>$id);
+//			}
+//			else if($type==3)
+//			{
+//				$where = array('l_c'=>$id);
+//			}
+//			if(!empty($user)){$where['id'] = $user;}
+//
+//			$count = M ("User")->where($where)->count();
+//
+//			if($type==1)
+//			{
+//				$count_desc .= "部分会员($count)人";
+//			}
+//			else if ($type==2)
+//			{
+//				$count_desc .= "二级会员($count)人";
+//			}
+//			else if($type==3)
+//			{
+//				$count_desc .= "三级会员($count)人";
+//			}
+//
+//			$Page = new Page ( $count, 10 );
+//
+//			$Page -> setConfig('header', '人');
+//			$Page -> setConfig('theme', '<li><a>%totalRow% %header%</a></li> <li>%upPage%</li> <li>%downPage%</li> <li>%first%</li>  <li>%prePage%</li> <li>%end%</li> ');//(对thinkphp自带分页的格式进行自定义)
+//
+//			$show = $Page->show (); // 分页显示输出
+//
+//			$result = M ("User")->where($where)->limit ( $Page->firstRow . ',' . $Page->listRows )->select();
+//			$this->assign ( "result", $result );
+//			$this->assign ( "page", $show );
+//			$this->assign ( "count_desc", $count_desc );
+//
+//			$info = R ( "Api/Api/gettheme" );
+//			C ( "DEFAULT_THEME", $info ["theme"] );
+//			$this->assign ( "info", $info );
+//
+//			$this->assign ( "dongjia_time", $this->dongjia_time );
+//
+//			$this->display ();
+//		}
+//	}
+//
 	public function member_top()
 	{
 		if ($_GET ['id']) {
