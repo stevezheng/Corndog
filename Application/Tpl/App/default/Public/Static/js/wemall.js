@@ -322,6 +322,11 @@ function doProduct (id , name , price) {
 }
 
 function submitTxOrder () {
+    if(!$('#txCheckbox').is(':checked'))
+    {
+        alert('请先同意协议');
+        return false;
+    }
 
 	if(!confirm("您确认需要提现吗？"))
 	{
