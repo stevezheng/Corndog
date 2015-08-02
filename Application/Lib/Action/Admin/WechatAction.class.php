@@ -79,8 +79,7 @@ class WechatAction extends Action {
 						}
 						else
 						{
-							$text = '您还不是团长，不能为您生成推广图片，<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx44a7467fd96f916c&redirect_uri=http%3A%2F%2Ffenxiao.yorkbang.com%2Findex.php%3Fg%3DApp%26m%3DIndex%26a%3Dindex_info%26refresh%3D1&response_type=code&scope=snsapi_base&state=#wechat_redirect">立即预定</a>成为团长,开始赚钱！';
-							$weObj->text ( $text )->reply ();
+                            $text = '您还不是团长，不能为您生成推广图片，<a href="http://fenxiao.yorkbang.com/index.php?g=App&m=Index&a=index&refresh=1">立即预定</a>成为团长,开始赚钱！';
 						}
 						exit ();
 					}
@@ -97,11 +96,56 @@ class WechatAction extends Action {
 						}
 						else
 						{
-							$text = '您还不是团长，不能为您生成推广链接，<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx44a7467fd96f916c&redirect_uri=http%3A%2F%2Ffenxiao.yorkbang.com%2Findex.php%3Fg%3DApp%26m%3DIndex%26a%3Dindex_info%26refresh%3D1&response_type=code&scope=snsapi_base&state=#wechat_redirect">立即预定</a>成为团长,开始赚钱！';
+							$text = '您还不是团长，不能为您生成推广文章，<a href="http://fenxiao.yorkbang.com/index.php?g=App&m=Index&a=index&refresh=1">立即预定</a>成为团长,开始赚钱！';
 							$weObj->text ( $text )->reply ();
 						}
 						exit ();
 					}
+                    elseif ($eventype ['key'] == 'GET_POST')
+                    {
+                        $usersresult = R ( "Api/Api/getuser", array (
+                            $weObj->getRevFrom ()
+                        ) );
+
+                        if($usersresult['member']==1)
+                        {
+                            $appUrl = 'http://' . $this->_server ( 'HTTP_HOST' ) . __ROOT__;
+
+                            $news = M ( "Wxmessage" )->where ( array (
+                                "key" => $eventype ['key'],
+                                "type" => 0
+                            ) )->select ();
+
+                            if ($news) {
+                                for($i = 0; $i < count ( $news ); $i ++) {
+                                    $newsArr[$i] = array(
+                                        'Title' => $news[$i]["title"],
+                                        'Description' => $news[$i]["description"],
+                                        'PicUrl' => $appUrl . '/Public/Uploads/'.$news[$i]["picurl"],
+                                        'Url' => $news[$i]["url"].'&uid=' . $weObj->getRevFrom ()
+                                    );
+                                }
+
+                                $weObj->getRev ()->news ( $newsArr )->reply ();
+                            }
+
+
+
+                            $replay = M("Wxmessage")->where(array("key"=>$eventype ['key'],"type" => 1))->select();
+                            if(!empty($replay[0]["description"]))
+                            {
+                                $weObj->text ( $replay[0]["description"] )->reply ();
+                                exit ();
+                            }
+
+                        }
+                        else
+                        {
+                            $text = '您还不是团长，不能为您生成推广链接，<a href="http://fenxiao.yorkbang.com/index.php?g=App&m=Index&a=index&refresh=1">立即预定</a>成为团长,开始赚钱！';
+                            $weObj->text ( $text )->reply ();
+                        }
+                        exit ();
+                    }
 					else
 					{
 						$appUrl = 'http://' . $this->_server ( 'HTTP_HOST' ) . __ROOT__;

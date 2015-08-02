@@ -625,6 +625,7 @@ class IndexAction extends Action {
 	}
 
     public  function get_user_post() {
+        $this->init('get_user_post');
         if($_GET['uid'])
         {
             $users_result = M ( "User" )->where ( array (
@@ -632,7 +633,17 @@ class IndexAction extends Action {
             ) )->find ();
 
             $ticket = R ( "Api/Api/ticket", array ($users_result) );
+            if ($ticket['pic'] == 'benbendou.jpg') {
+                $ticket['status'] = false;
+            } else {
+                $ticket['status'] = true;
+            }
             $this->assign('ticket', $ticket);
+            $image = 'http://fenxiao.yorkbang.com/imgpublic/'.$ticket['pic'];
+            $this->assign('image', $image);
+            $this->display();
+        } else {
+            $this->assign('ticket', array('pic'=>'no pic', 'status'=>false));
             $this->display();
         }
     }
