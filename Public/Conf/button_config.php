@@ -3,10 +3,21 @@ $buy_button = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.'g=App&m=
 $jiazu_button = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.'g=App&m=Index&a=member&refresh=1';
 $newmenu = '{
 		 "button":[
-			{	
+			{
+			  "type":"view",
+			  "name":"参与招募",
+				"sub_button":[
+
+				{
 			  "type":"view",
 			  "name":"参与招募",
 			  "url":"'.$buy_button.'"
+				},
+				{
+				   "name":"百问百答",
+				"type":"view",
+			  "url": "http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087488&idx=1&sn=523e72bd27b29827e2800c1b3385ebd3#rd"
+				}]
 			},
 			{
 				"name":"招募中心",
@@ -18,6 +29,11 @@ $newmenu = '{
 				   "name":"获取推广图片",
 				   "key":"GET_PIC"
 				},
+				{
+				   "type":"click",
+				   "name":"获取推广文章",
+				   "key":"GET_POST"
+				},
 			    	{
 				   "name":"招募指引",
 				   "type":"view",
@@ -27,11 +43,6 @@ $newmenu = '{
 				   "name":"招商手册",
 				   "type":"view",
 			  "url": "http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087853&idx=1&sn=aeb74f5f58676a23aa2126ad987b6cdc#rd"
-				},
-				{
-				   "name":"加盟城市",
-				   "type":"view",
-			  "url": "http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208204024&idx=1&sn=9d6bde030d3c3a3cba603a1781780167#rd"
 				},
 				{
 				   "name":"个人中心",
@@ -59,9 +70,9 @@ $newmenu = '{
 			  "url": "http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087826&idx=1&sn=c3564c2416b6a1c6cbeac239b10f9e7f#rd"
 				},
 				{
-				   "name":"百问百答",
-				"type":"view",
-			  "url": "http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208087488&idx=1&sn=523e72bd27b29827e2800c1b3385ebd3#rd"
+				   "name":"加盟城市",
+				   "type":"view",
+			  "url": "http://mp.weixin.qq.com/s?__biz=MzAxNTYzMTMzNQ==&mid=208204024&idx=1&sn=9d6bde030d3c3a3cba603a1781780167#rd"
 				},
 			    	{
 				   "name":"免责声明",
