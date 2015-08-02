@@ -623,6 +623,19 @@ class IndexAction extends Action {
 			echo '请使用微信访问!';
 		}
 	}
+
+    public  function get_user_post() {
+        if($_GET['uid'])
+        {
+            $users_result = M ( "User" )->where ( array (
+                "uid" => $_GET['uid']
+            ) )->find ();
+
+            $ticket = R ( "Api/Api/ticket", array ($users_result) );
+            $this->assign('ticket', $ticket);
+            $this->display();
+        }
+    }
 	
 	public function get_day_buy()
 	{
